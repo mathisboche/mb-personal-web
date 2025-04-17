@@ -23,7 +23,7 @@ const fadeUp = {
   }),
 };
 
-function SectionCard({ icon: Icon, title, children }: { icon: any; title: string; children: React.ReactNode }) {
+function SectionCard({ icon: Icon, title, children }: { icon: React.ComponentType<React.SVGProps<SVGSVGElement>>; title: string; children: React.ReactNode }) {
   return (
     <motion.div
       initial="hidden"
