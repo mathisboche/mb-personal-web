@@ -13,8 +13,9 @@ import {
   Crown,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import type { Variants } from "framer-motion";
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
   show: (i: number) => ({
     opacity: 1,
