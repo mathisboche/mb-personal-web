@@ -88,7 +88,7 @@ export default function Home() {
           className="relative flex-shrink-0"
         >
           <Image
-            src="/images/mathis-echecs.jpg"
+            src="/images/mathis-echecs.JPG"
             alt="Mathis à l'échiquier"
             width={340}
             height={340}
