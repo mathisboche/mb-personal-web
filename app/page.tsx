@@ -45,7 +45,8 @@ function SectionCard({ icon: Icon, title, children }: { icon: React.ComponentTyp
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen w-full text-neutral-100 selection:bg-orange-500/80 selection:text-neutral-900">
+    <main className="relative min-h-screen w-full overflow-x-hidden
+                 text-neutral-100 selection:bg-orange-500/80 selection:text-neutral-900">
       {/* Background */}
       <div className="pointer-events-none fixed inset-0 -z-20 bg-gradient-to-br from-[#0b1e40] via-[#141327] to-black" />
       <div className="pointer-events-none absolute -z-10 top-[-10%] left-[60%] h-[35rem] w-[35rem] rounded-full bg-orange-500 mix-blend-soft-light blur-3xl opacity-10 animate-spin-slow" />
