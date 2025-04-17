@@ -1,292 +1,195 @@
-import Image from 'next/image';
-import { 
-  FaChessKing, 
-  FaGlobe, 
-  FaLaptopCode, 
-  FaCertificate, 
-  FaGithub, 
-  FaLinkedin, 
-  FaEnvelope, 
-  FaReact, 
-  FaHtml5, 
-  FaCss3Alt, 
-  FaPython 
-} from 'react-icons/fa';
+"use client";
 
-export default function HomePage() {
+import Image from "next/image";
+import Link from "next/link";
+import {
+  Mail,
+  Github,
+  Linkedin,
+  ExternalLink,
+  Info,
+  Briefcase,
+  Award,
+  Crown,
+} from "lucide-react";
+import { motion } from "framer-motion";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  show: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: 0.15 * i, duration: 0.7, ease: "easeOut" },
+  }),
+};
+
+function SectionCard({ icon: Icon, title, children }: { icon: any; title: string; children: React.ReactNode }) {
   return (
-    <main className="font-['Source_Sans_Pro'] bg-[#0F0F0F] text-[#E0E0E0] min-h-screen relative">
-      {/* HEADER */}
-      <header className="fixed top-0 left-0 right-0 z-50 px-6 py-4 flex justify-between items-center
-                         bg-[#0F0F0F] bg-opacity-80 backdrop-blur-sm shadow-md">
-        <h1 className="text-xl font-['Oswald'] font-semibold tracking-wide">
-          Mathis Boche
-        </h1>
-        <nav>
-          <ul className="hidden md:flex space-x-6 text-base">
-            <li className="hover:text-[#FF4500] transition"><a href="#hero">Accueil</a></li>
-            <li className="hover:text-[#FF4500] transition"><a href="#about">À propos</a></li>
-            <li className="hover:text-[#FF4500] transition"><a href="#projects">Projets</a></li>
-            <li className="hover:text-[#FF4500] transition"><a href="#skills">Compétences</a></li>
-            <li className="hover:text-[#FF4500] transition"><a href="#contact">Contact</a></li>
-          </ul>
-        </nav>
-      </header>
+    <motion.div
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.3 }}
+      variants={fadeUp}
+      custom={0}
+      className="relative rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md p-6 shadow-2xl hover:shadow-orange-500/20 transition-shadow overflow-hidden"
+    >
+      <Icon className="absolute top-4 right-4 h-12 w-12 text-orange-400 opacity-20 rotate-45" />
+      <h2 className="flex items-center font-spaceGrotesk text-2xl text-orange-400 mb-4">
+        {title}
+      </h2>
+      {children}
+    </motion.div>
+  );
+}
 
-      {/* HERO SECTION */}
-      <section
-        id="hero"
-        className="pt-24 pb-16 px-6 text-center bg-gradient-to-r from-[#0F0F0F] to-[#1C1C1C]"
-      >
-        <div className="max-w-2xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-['Oswald'] font-bold mb-4 leading-tight">
-            Lycéen passionné de code & d’échecs
-          </h2>
-          <p className="text-base md:text-lg leading-relaxed mb-6">
-            J’allie ma soif de programmation web et ma fibre compétitive issue des échecs. 
-            De la conception UX à l’implémentation, je rêve de bâtir des solutions numériques audacieuses.
+export default function Home() {
+  return (
+    <main className="relative min-h-screen w-full text-neutral-100 selection:bg-orange-500/80 selection:text-neutral-900">
+      {/* Background */}
+      <div className="pointer-events-none fixed inset-0 -z-20 bg-gradient-to-br from-[#0b1e40] via-[#141327] to-black" />
+      <div className="pointer-events-none absolute -z-10 top-[-10%] left-[60%] h-[35rem] w-[35rem] rounded-full bg-orange-500 mix-blend-soft-light blur-3xl opacity-10 animate-spin-slow" />
+      <div className="pointer-events-none absolute -z-10 bottom-[-15%] left-[-10%] h-[28rem] w-[28rem] rounded-full bg-indigo-600 mix-blend-soft-light blur-3xl opacity-10 animate-spin-reverse" />
+
+      {/* Hero */}
+      <section className="relative mx-auto flex max-w-6xl flex-col-reverse items-center gap-12 px-6 pt-28 sm:pt-32 md:flex-row md:items-center lg:gap-20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: "easeOut" }}
+          className="flex-1 text-center md:text-left"
+        >
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight bg-gradient-to-r from-orange-400 via-yellow-300 to-orange-500 bg-clip-text text-transparent drop-shadow-[0_3px_6px_rgba(0,0,0,0.25)]">
+            Mathis&nbsp;Boche
+          </h1>
+          <p className="mt-6 text-lg sm:text-xl leading-relaxed max-w-lg mx-auto md:mx-0">
+            Je code, je joue aux échecs et je construis des choses bien faites.
           </p>
-          <a 
-            href="#about"
-            className="inline-block bg-[#FF4500] px-8 py-3 text-base font-semibold rounded-full
-                       hover:bg-[#FF6A33] transition-colors duration-300"
-          >
-            Découvrir mon parcours
-          </a>
-        </div>
-      </section>
-
-      {/*
-      <section className="px-6 py-12 bg-[#1C1C1C]">
-        <div className="max-w-4xl mx-auto">
-          <h3 className="text-2xl md:text-3xl font-['Oswald'] font-bold mb-6 text-center">
-            Inspiration
-          </h3>
-          <div className="relative w-full h-64 md:h-96 rounded-lg overflow-hidden">
-            <Image
-              src="/images/midjourney-placeholder-1.jpg"
-              alt="Illustration Midjourney Abstraite"
-              fill
-              className="object-cover"
-            />
-          </div>
-        </div>
-      </section> */}
-
-      {/* STATS / HIGHLIGHTS */}
-      <section className="px-6 py-12 bg-[#1C1C1C]">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-          
-          {/* Stat: Élo Échecs */}
-          <div className="bg-[#2A2A2A] p-6 rounded-xl text-center hover:shadow-md transition-all">
-            <div className="mb-3 flex justify-center">
-              <FaChessKing className="w-10 h-10 text-[#FF4500]" />
-            </div>
-            <h3 className="text-xl font-['Oswald'] mb-1 text-[#FF4500]">Élo Échecs</h3>
-            <p className="text-base">1759 (objectif 2000)</p>
-          </div>
-          
-          {/* Stat: Langues */}
-          <div className="bg-[#2A2A2A] p-6 rounded-xl text-center hover:shadow-md transition-all">
-            <div className="mb-3 flex justify-center">
-              <FaGlobe className="w-10 h-10 text-[#FF4500]" />
-            </div>
-            <h3 className="text-xl font-['Oswald'] mb-1 text-[#FF4500]">Langues</h3>
-            <p className="text-base">Français, Russe, Anglais</p>
-          </div>
-          
-          {/* Stat: Projets Web */}
-          <div className="bg-[#2A2A2A] p-6 rounded-xl text-center hover:shadow-md transition-all">
-            <div className="mb-3 flex justify-center">
-              <FaLaptopCode className="w-10 h-10 text-[#FF4500]" />
-            </div>
-            <h3 className="text-xl font-['Oswald'] mb-1 text-[#FF4500]">Projets Web</h3>
-            <p className="text-base">Portfolio, ChessMates, etc.</p>
-          </div>
-          
-          {/* Stat: DAFFE 1 */}
-          <div className="bg-[#2A2A2A] p-6 rounded-xl text-center hover:shadow-md transition-all">
-            <div className="mb-3 flex justify-center">
-              <FaCertificate className="w-10 h-10 text-[#FF4500]" />
-            </div>
-            <h3 className="text-xl font-['Oswald'] mb-1 text-[#FF4500]">DAFFE 1</h3>
-            <p className="text-base">Certification d’animateur échecs</p>
-          </div>
-        </div>
-      </section>
-
-      {/* À PROPOS */}
-      <section id="about" className="px-6 py-16 bg-gradient-to-r from-[#0F0F0F] to-[#1C1C1C]">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-          <div className="relative w-full h-72 md:h-96 overflow-hidden rounded-lg">
-            {/* Placeholder Midjourney portrait abstr. */}
-            <Image
-              src="/images/portrait.JPG"
-              alt="Portrait de Mathis Boche"
-              fill
-              className="object-cover"
-            />
-          </div>
-          <div>
-            <h3 className="text-2xl md:text-3xl font-['Oswald'] font-bold mb-4">
-              À propos
-            </h3>
-            <p className="leading-relaxed mb-4 text-base md:text-lg">
-              Je suis Mathis Boche, lycéen en Terminale passionné par le <strong>développement web</strong> et les <strong>échecs</strong>.
-            </p>
-            <p className="leading-relaxed mb-4 text-base md:text-lg">
-              Trilingue (Français, Russe, Anglais), j’exploite cette ouverture culturelle et mon goût pour la stratégie pour créer des projets web originaux. 
-              Les échecs m’ont appris la <em>réflexion</em>, la <em>patience</em> et l’<em>anticipation</em>.
-            </p>
-            <p className="leading-relaxed text-base md:text-lg">
-              Mon ambition ? Intégrer une <strong>prépa scientifique</strong> puis une <strong>école d’ingénieur</strong>. 
-              Je crois que la logique d’un échiquier et l’innovation technologique sont des clés pour façonner l’avenir.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* PROJETS */}
-      <section id="projects" className="px-6 py-16 bg-[#1C1C1C]">
-        <div className="max-w-6xl mx-auto">
-          <h3 className="text-2xl md:text-3xl font-['Oswald'] font-bold text-center mb-10">
-            Projets
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-[#2A2A2A] p-6 rounded-lg shadow-md hover:shadow-lg hover:scale-[1.02] transition-transform">
-              {/* Image Midjourney/Placeholder */}
-             {/* <div className="relative w-full h-40 mb-4 rounded overflow-hidden">
-                <Image
-                  src="/images/midjourney-project1.jpg"
-                  alt="Midjourney Project Placeholder"
-                  fill
-                  className="object-cover"
-                />
-              </div>*/}
-              <h4 className="text-lg font-semibold mb-2 text-[#FF4500]">Portfolio Personnel</h4>
-              <p className="text-base leading-relaxed">
-                Un projet complet avec Next.js et TailwindCSS. Cette vitrine illustre mon souci du détail, 
-                de l’UX/UI au déploiement sur Vercel.
-              </p>
-            </div>
-            <div className="bg-[#2A2A2A] p-6 rounded-lg shadow-md hover:shadow-lg hover:scale-[1.02] transition-transform">
-             {/* <div className="relative w-full h-40 mb-4 rounded overflow-hidden">
-                <Image
-                  src="/images/midjourney-chess.jpg"
-                  alt="Midjourney Chess Placeholder"
-                  fill
-                  className="object-cover"
-                />
-              </div>*/}
-              <h4 className="text-lg font-semibold mb-2 text-[#FF4500]">ChessMates International</h4>
-              <p className="text-base leading-relaxed">
-                Responsable du site (Wix) et de la communication sur les réseaux. 
-                J’y ai découvert le travail en équipe et l’organisation d’événements internationaux.
-              </p>
-            </div>
-            <div className="bg-[#2A2A2A] p-6 rounded-lg shadow-md hover:shadow-lg hover:scale-[1.02] transition-transform">
-             {/* <div className="relative w-full h-40 mb-4 rounded overflow-hidden">
-                <Image
-                  src="/images/midjourney-project2.jpg"
-                  alt="Midjourney Project Placeholder"
-                  fill
-                  className="object-cover"
-                />
-              </div>*/}
-              <h4 className="text-lg font-semibold mb-2 text-[#FF4500]">Autres Projets</h4>
-              <p className="text-base leading-relaxed">
-                Divers projets scolaires et personnels autour de React et JS. 
-                J’y explore de nouvelles approches et affine mes compétences de développeur junior.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* COMPÉTENCES */}
-      <section id="skills" className="px-6 py-16 bg-gradient-to-r from-[#0F0F0F] to-[#1C1C1C] text-center">
-        <div className="max-w-5xl mx-auto">
-          <h3 className="text-2xl md:text-3xl font-['Oswald'] font-bold mb-8">Compétences</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-            <div className="space-y-4">
-              <h4 className="text-xl font-semibold text-[#FF4500] flex items-center gap-2">
-                <FaReact /> Développement Web
-              </h4>
-              <ul className="list-disc list-inside text-base md:text-lg space-y-2">
-                <li className="flex items-center gap-2">
-                  <FaHtml5 /> <strong>HTML</strong>
-                </li>
-                <li className="flex items-center gap-2">
-                  <FaCss3Alt /> <strong>CSS</strong>
-                </li>
-                <li className="flex items-center gap-2">
-                  <FaReact /> <strong>JavaScript / React / Next.js</strong>
-                </li>
-                <li className="flex items-center gap-2">
-                  <FaPython /> <strong>Python</strong>
-                </li>
-                <li><strong>Outils :</strong> GitHub, Vercel, Wix Studio, Figma</li>
-                <li><strong>Montage vidéo :</strong> DaVinci Resolve</li>
-              </ul>
-            </div>
-            <div className="space-y-4">
-              <h4 className="text-xl font-semibold text-[#FF4500]">Échecs & Stratégie</h4>
-              <p className="text-base md:text-lg">
-                Elo standard : <strong>1759</strong> – Objectif : <strong>2000</strong>.
-              </p>
-              <ul className="list-disc list-inside text-base md:text-lg space-y-2">
-                <li>2 participations Championnat de France Jeunes (U14/U16)</li>
-                <li>DAFFE 1 : certification d’animateur</li>
-                <li>Gestion du site & réseaux sociaux ChessMates</li>
-                <li>Bénévolat en club, cours pour jeunes</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CONTACT - amélioré */}
-      <section id="contact" className="px-6 py-20 bg-[#1C1C1C] text-center relative overflow-hidden">
-        <h3 className="text-2xl md:text-3xl font-['Oswald'] font-bold mb-6">Contact</h3>
-        <p className="text-base md:text-lg max-w-xl mx-auto mb-8">
-          Envie d’en savoir plus ? Besoin d’un développeur junior passionné par la stratégie et le code ?
-          <br />N’hésitez pas à me joindre ou à parcourir mes réseaux :
-        </p>
-
-        <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-x-8 sm:space-y-0 mb-8">
+          <div className="mt-8 flex flex-wrap justify-center md:justify-start gap-4">
           <a
-            href="https://github.com/mathisboche"
-            className="inline-flex items-center text-base font-semibold hover:text-[#FF4500] transition"
+            href="mailto:mathis@m-b.co"
+            className="inline-flex items-center gap-2 rounded-full border border-orange-400 px-5 py-2 text-sm font-medium transition hover:bg-orange-400 hover:text-neutral-900"
           >
-            <FaGithub className="w-5 h-5 mr-2" />
-            GitHub
+            Me contacter
           </a>
-          <a
-            href="https://linkedin.com/in/mathis-boche"
-            className="inline-flex items-center text-base font-semibold hover:text-[#FF4500] transition"
-          >
-            <FaLinkedin className="w-5 h-5 mr-2" />
-            LinkedIn
-          </a>
-          <a
-            href="mailto:mathisboche@outlook.fr"
-            className="inline-flex items-center text-base font-semibold hover:text-[#FF4500] transition"
-          >
-            <FaEnvelope className="w-5 h-5 mr-2" />
-            Email
-          </a>
-        </div>
+            <Link
+              href="#projets"
+              className="inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2 text-sm font-medium transition hover:border-orange-400"
+            >
+              Voir mes projets
+            </Link>
+          </div>
+        </motion.div>
 
-        <p className="text-sm text-gray-400">
-          Tél : +33 6 01 86 85 89 <br/>
-          Basé à Montrouge, France
-        </p>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.9, ease: "easeOut", delay: 0.2 }}
+          className="relative flex-shrink-0"
+        >
+          <Image
+            src="/images/mathis-echecs.jpg"
+            alt="Mathis à l'échiquier"
+            width={340}
+            height={340}
+            className="rounded-3xl object-cover shadow-2xl saturate-150"
+            priority
+          />
+          <span className="absolute inset-0 rounded-3xl border border-orange-400/30" />
+        </motion.div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="py-4 bg-black text-center text-gray-400 text-xs">
-        <p>© {new Date().getFullYear()} Mathis Boche – Lycéen & Développeur Web.</p>
+      {/* Main Sections Grid */}
+      <div id="projets" className="mx-auto mt-32 mb-24 grid w-full max-w-5xl grid-cols-1 gap-12 px-6 md:grid-cols-2">
+        <SectionCard icon={Info} title="À propos">
+          <ul className="ml-5 list-disc space-y-1 text-base leading-relaxed">
+            <li>17 ans, lycéen</li>
+            <li>J’ai commencé à coder en seconde.</li>
+            <li>Joueur d’échecs de compétition.</li>
+            <li>Je combine code, communication et transmission.</li>
+          </ul>
+        </SectionCard>
+
+        <SectionCard icon={Briefcase} title="Projets & expériences">
+          <div className="space-y-6">
+            <div className="flex items-start gap-4">
+              <Crown className="mt-1 h-6 w-6 text-orange-400" />
+              <div>
+                <h3 className="text-lg font-semibold">ChessMates International</h3>
+                <p className="text-sm text-neutral-400">Communication & site web — Depuis 2024</p>
+                <Link href="https://chessmatesinternational.com" className="mt-1 inline-flex items-center gap-1 underline hover:text-orange-400">
+                  <ExternalLink size={16} /> chessmatesinternational.com
+                </Link>
+              </div>
+            </div>
+            <div className="flex items-start gap-4">
+              <Award className="mt-1 h-6 w-6 text-orange-400" />
+              <div>
+                <h3 className="text-lg font-semibold">DAFFE 1</h3>
+                <p className="text-sm text-neutral-400">Animateur échecs — Diplômé en 2024</p>
+                <Link href="https://mtbh.fr/daf" className="mt-1 inline-flex items-center gap-1 underline hover:text-orange-400">
+                  <ExternalLink size={16} /> mtbh.fr/daf
+                </Link>
+              </div>
+            </div>
+            <div className="flex items-start gap-4">
+              <Briefcase className="mt-1 h-6 w-6 text-orange-400" />
+              <div>
+                <h3 className="text-lg font-semibold">Projets personnels</h3>
+                <ul className="mt-2 ml-5 list-disc space-y-1">
+                  <li>
+                    <Link href="https://mathisboche.fr" className="inline-flex items-center gap-1 underline hover:text-orange-400">
+                      <ExternalLink size={16} /> mathisboche.fr
+                    </Link>
+                    — ancienne version du site
+                  </li>
+                  <li>
+                    <Link href="https://mtbh.fr" className="inline-flex items-center gap-1 underline hover:text-orange-400">
+                      <ExternalLink size={16} /> mtbh.fr
+                    </Link>
+                    — raccourcisseur de liens
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </SectionCard>
+
+        <SectionCard icon={Crown} title="Échecs">
+          <ul className="ml-5 list-disc space-y-1 text-base leading-relaxed">
+            <li>Classement : 1725 (standard), 1687 (rapide), 1694 (blitz)</li>
+            <li>Membre du club de Bois‑Colombes</li>
+            <li>Deux participations aux Championnats de France Jeunes</li>
+            <li>Animateur à la Cité des sciences (depuis 2025)</li>
+          </ul>
+          <Link href="https://mtbh.fr/chess" className="mt-3 inline-flex items-center gap-1 underline hover:text-orange-400">
+            <ExternalLink size={16} /> mtbh.fr/chess
+          </Link>
+        </SectionCard>
+
+        <SectionCard icon={Mail} title="Contact">
+          <div className="space-y-4 text-base">
+            <a href="mailto:mathis@m-b.co" className="inline-flex items-center gap-2 underline hover:text-orange-400">
+              <Mail size={18} /> mathis@m-b.co
+            </a>
+            <div className="flex flex-wrap items-center gap-6">
+              <a href="https://github.com/mathisboche" className="inline-flex items-center gap-1 underline hover:text-orange-400">
+                <Github size={18} /> GitHub
+              </a>
+              <a href="https://linkedin.com/in/mathisboche" className="inline-flex items-center gap-1 underline hover:text-orange-400">
+                <Linkedin size={18} /> LinkedIn
+              </a>
+              <a href="https://mtbh.fr" className="inline-flex items-center gap-1 underline hover:text-orange-400">
+                <ExternalLink size={18} /> mtbh.fr
+              </a>
+            </div>
+          </div>
+        </SectionCard>
+      </div>
+
+      {/* Footer */}
+      <footer className="mx-auto mb-12 text-center text-sm text-neutral-500">
+        Dernière mise à jour : avril 2025 • Hébergé sur Vercel
       </footer>
     </main>
-  );
+);
 }
