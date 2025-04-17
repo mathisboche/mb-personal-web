@@ -3,7 +3,7 @@ import "./globals.css";
 import Script from 'next/script'; // Import pour Google Analytics
 
 // Remplace par TON ID de suivi Google Analytics
-const GA_TRACKING_ID = 'G-9KCS6YWF1D';
+const GA_TRACKING_ID = 'G-FN2NYQ9436';
 
 export const metadata: Metadata = {
   title: 'Mathis Boche - Lycéen & Développeur Web',
