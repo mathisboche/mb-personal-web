@@ -67,18 +67,18 @@ export default function Home() {
             Je code, je joue aux échecs et je construis des choses bien faites.
           </p>
           <div className="mt-8 flex flex-wrap justify-center md:justify-start gap-4">
-          <a
-            href="mailto:mathis@m-b.co"
-            className="inline-flex items-center gap-2 rounded-full border border-orange-400 px-5 py-2 text-sm font-medium transition hover:bg-orange-400 hover:text-neutral-900"
-          >
-            Me contacter
-          </a>
-            <Link
+            <a
+              href="mailto:mathis@m-b.co"
+              className="inline-flex items-center gap-2 rounded-full border border-orange-400 px-5 py-2 text-sm font-medium transition hover:bg-orange-400 hover:text-neutral-900"
+            >
+              Me contacter
+            </a>
+            <a
               href="#projets"
               className="inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2 text-sm font-medium transition hover:border-orange-400"
             >
               Voir mes projets
-            </Link>
+            </a>
           </div>
         </motion.div>
 
@@ -101,7 +101,8 @@ export default function Home() {
       </section>
 
       {/* Main Sections Grid */}
-      <div id="projets" className="mx-auto mt-32 mb-24 grid w-full max-w-5xl grid-cols-1 gap-12 px-6 md:grid-cols-2">
+      <div id="projets" className="mx-auto mt-32 mb-24 grid w-full max-w-5xl grid-cols-1 gap-12 px-6 md:grid-cols-2 scroll-mt-[24px] md:scroll-mt-[24px]">
+        
         <SectionCard icon={Info} title="À propos">
           <ul className="ml-5 list-disc space-y-1 text-base leading-relaxed">
             <li>17 ans, lycéen</li>
