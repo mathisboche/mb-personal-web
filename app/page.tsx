@@ -50,7 +50,7 @@ export default function Home() {
       {/* Background */}
       <div className="pointer-events-none fixed inset-0 -z-20 bg-gradient-to-br from-[#0b1e40] via-[#141327] to-black" />
       <div className="pointer-events-none absolute -z-10 top-[-10%] left-[60%] h-[35rem] w-[35rem] rounded-full bg-orange-500 mix-blend-soft-light blur-3xl opacity-10 animate-spin-slow" />
-      <div className="pointer-events-none absolute -z-10 bottom-[-15%] left-[-10%] h-[28rem] w-[28rem] rounded-full bg-indigo-600 mix-blend-soft-light blur-3xl opacity-10 animate-spin-reverse" />
+      <div className="pointer-events-none fixed -z-10 -bottom-40 -left-32 h-[28rem] w-[28rem] rounded-full bg-indigo-600 mix-blend-soft-light blur-3xl opacity-10 animate-spin-reverse" />
 
       {/* Hero */}
       <section className="relative mx-auto flex max-w-6xl flex-col-reverse items-center gap-12 px-6 pt-28 sm:pt-32 md:flex-row md:items-center lg:gap-20">
