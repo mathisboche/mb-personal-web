@@ -68,7 +68,7 @@ export default function Home() {
           </p>
           <div className="mt-8 flex flex-wrap justify-center md:justify-start gap-4">
             <a
-              href="mailto:mathis@m-b.co"
+              href="mailto:contact@m-b.co"
               className="inline-flex items-center gap-2 rounded-full border border-orange-400 px-5 py-2 text-sm font-medium transition hover:bg-orange-400 hover:text-neutral-900"
             >
               Me contacter
@@ -171,8 +171,8 @@ export default function Home() {
 
         <SectionCard icon={Mail} title="Contact">
           <div className="space-y-4 text-base">
-            <a href="mailto:mathis@m-b.co" className="inline-flex items-center gap-2 underline hover:text-orange-400">
-              <Mail size={18} /> mathis@m-b.co
+            <a href="mailto:contact@m-b.co" className="inline-flex items-center gap-2 underline hover:text-orange-400">
+              <Mail size={18} /> contact@m-b.co
             </a>
             <div className="flex flex-wrap items-center gap-6">
               <a href="https://github.com/mathisboche" className="inline-flex items-center gap-1 underline hover:text-orange-400">
