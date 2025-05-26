@@ -15,24 +15,25 @@ const BRAND_ORANGE = "#ff7a18" as const;
 // -----------------------------------------------------------------------------
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  applicationName: "Mathis Boche Portfolio",
+  applicationName: "Mathis Boche",
   generator: "Next.js 14",
   title: {
-    default: "Mathis Boche — Code ✦ Échecs ✦ Créativité",
-    template: "%s — Mathis Boche",
+    default: "Mathis Boche — Échecs, Communication et Web",
+    template: "%s — Mathis Boche",
   },
   description:
-    "Je code des expériences web dynamiques et j'affûte mon esprit aux échecs. Explore mon univers, mes projets et mon parcours.",
+    "Découvrez le parcours de Mathis Boche : gestion des réseaux sociaux et du site web de ChessMates International, joueur passionné d'échecs et créateur de contenu.",
   keywords: [
     "Mathis Boche",
-    "développeur web",
+    "ChessMates International",
+    "échecs",
+    "communication digitale",
+    "réseaux sociaux",
     "Next.js",
     "TailwindCSS",
-    "TypeScript",
-    "JavaScript",
     "portfolio",
-    "lycéen",
-    "échecs",
+    "DAFFE 1",
+    "animateur échecs"
   ],
   category: "portfolio",
   themeColor: BRAND_ORANGE,
@@ -43,25 +44,25 @@ export const metadata: Metadata = {
     type: "website",
     locale: "fr_FR",
     url: SITE_URL,
-    siteName: "Mathis Boche",
-    title: "Mathis Boche — Code ✦ Échecs ✦ Créativité",
+    siteName: "Mathis Boche",
+    title: "Mathis Boche — Échecs, Communication et Web",
     description:
-      "Portfolio de Mathis Boche : projets Next.js, articles, échecs et contact.",
+      "Portfolio de Mathis Boche : gestion des réseaux sociaux, ChessMates International, échecs et projets web.",
     images: [
       {
         url: `${SITE_URL}/og-image.jpg`,
         width: 1200,
         height: 630,
-        alt: "Bannière du portfolio de Mathis Boche",
+        alt: "Mathis Boche — Portfolio Échecs & Communication",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     creator: "@mathisboche",
-    title: "Mathis Boche — Code ✦ Échecs ✦ Créativité",
+    title: "Mathis Boche — Échecs, Communication et Web",
     description:
-      "Portfolio de Mathis Boche : projets Next.js, TailwindCSS, échecs et inspirations.",
+      "Mathis Boche : Animateur chez ChessMates, joueur d'échecs passionné et créateur web.",
     images: [`${SITE_URL}/og-image.jpg`],
   },
   robots: {
