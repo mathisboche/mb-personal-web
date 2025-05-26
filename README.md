@@ -48,7 +48,6 @@ Ce site présente mon parcours, mes expériences dans les échecs, mon travail c
    ```bash
    git clone https://github.com/mathisboche/site-web-2.0.git
    cd site-web-2.0
-````
 
 2. Installe les dépendances :
 
