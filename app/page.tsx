@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import {
   Mail,
   Github,
@@ -11,6 +10,7 @@ import {
   Briefcase,
   Award,
   Crown,
+  Instagram,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
@@ -44,9 +44,22 @@ function SectionCard({ icon: Icon, title, children }: { icon: React.ComponentTyp
 }
 
 export default function Home() {
+  // Objet email
+  const mailto = "mailto:mathis@boche.co?subject=Contact%20via%20le%20site%20web";
+
   return (
-    <main className="relative min-h-screen w-full overflow-x-hidden
-                 text-neutral-100 selection:bg-orange-500/80 selection:text-neutral-900">
+    <main className="relative min-h-screen w-full overflow-x-hidden text-neutral-100 selection:bg-orange-500/80 selection:text-neutral-900">
+      {/* SEO */}
+      <head>
+        <title>Mathis Boche — Échecs, Communication & Web</title>
+        <meta
+          name="description"
+          content="Mathis Boche : passionné d’échecs, animateur ChessMates, créateur web et responsable communication. Découvrez mon parcours, mes expériences et contactez-moi."
+        />
+        <meta name="keywords" content="Mathis Boche, échecs, ChessMates, animateur, communication, site web, Bois-Colombes, DAFFE 1, compétitions, réseau, Instagram" />
+        <meta name="robots" content="index, follow" />
+      </head>
+
       {/* Background */}
       <div className="pointer-events-none fixed inset-0 -z-20 bg-gradient-to-br from-[#0b1e40] via-[#141327] to-black" />
       <div className="pointer-events-none absolute -z-10 top-[-10%] left-[60%] h-[35rem] w-[35rem] rounded-full bg-orange-500 mix-blend-soft-light blur-3xl opacity-10 animate-spin-slow" />
@@ -64,20 +77,20 @@ export default function Home() {
             Mathis&nbsp;Boche
           </h1>
           <p className="mt-6 text-lg sm:text-xl leading-relaxed max-w-lg mx-auto md:mx-0">
-            Je code, je joue aux échecs et je construis des choses bien faites.
+            Communication et web pour ChessMates International. Joueur d’échecs passionné.
           </p>
           <div className="mt-8 flex flex-wrap justify-center md:justify-start gap-4">
             <a
-              href="mailto:mathis@boche.co"
+              href={mailto}
               className="inline-flex items-center gap-2 rounded-full border border-orange-400 px-5 py-2 text-sm font-medium transition hover:bg-orange-400 hover:text-neutral-900"
             >
               Me contacter
             </a>
             <a
-              href="#projets"
+              href="#xp"
               className="inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2 text-sm font-medium transition hover:border-orange-400"
             >
-              Voir mes projets
+              Voir mon parcours
             </a>
           </div>
         </motion.div>
@@ -101,57 +114,38 @@ export default function Home() {
       </section>
 
       {/* Main Sections Grid */}
-      <div id="projets" className="mx-auto mt-32 mb-24 grid w-full max-w-5xl grid-cols-1 gap-12 px-6 md:grid-cols-2 scroll-mt-[24px] md:scroll-mt-[24px]">
+      <div id="xp" className="mx-auto mt-32 mb-24 grid w-full max-w-5xl grid-cols-1 gap-12 px-6 md:grid-cols-2 scroll-mt-[24px] md:scroll-mt-[24px]">
         
         <SectionCard icon={Info} title="À propos">
           <ul className="ml-5 list-disc space-y-1 text-base leading-relaxed">
-            <li>17 ans, lycéen</li>
-            <li>J’ai commencé à coder en seconde.</li>
-            <li>Joueur d’échecs de compétition.</li>
-            <li>Je combine code, communication et transmission.</li>
+            <li>17 ans, lycéen à Montrouge</li>
+            <li>Responsable communication ChessMates International</li>
+            <li>DAFFE 1 — Animateur diplômé</li>
+            <li>Joueur d’échecs de compétition, club de Bois-Colombes</li>
+            <li>Entrepreneuriat & web, focus efficacité</li>
           </ul>
         </SectionCard>
 
-        <SectionCard icon={Briefcase} title="Projets & expériences">
+        <SectionCard icon={Briefcase} title="Expériences">
           <div className="space-y-6">
             <div className="flex items-start gap-4">
               <Crown className="mt-1 h-6 w-6 text-orange-400" />
               <div>
                 <h3 className="text-lg font-semibold">ChessMates International</h3>
-                <p className="text-sm text-neutral-400">Communication & site web — Depuis 2024</p>
-                <Link href="https://chessmatesinternational.com" className="mt-1 inline-flex items-center gap-1 underline hover:text-orange-400">
+                <p className="text-sm text-neutral-400">Responsable communication & site web (2024–...)</p>
+                <a href="https://chessmatesinternational.com" target="_blank" rel="noopener noreferrer" className="mt-1 inline-flex items-center gap-1 underline hover:text-orange-400">
                   <ExternalLink size={16} /> chessmatesinternational.com
-                </Link>
+                </a>
               </div>
             </div>
             <div className="flex items-start gap-4">
               <Award className="mt-1 h-6 w-6 text-orange-400" />
               <div>
-                <h3 className="text-lg font-semibold">DAFFE 1</h3>
-                <p className="text-sm text-neutral-400">Animateur échecs — Diplômé en 2024</p>
-                <Link href="https://mtbh.fr/daf" className="mt-1 inline-flex items-center gap-1 underline hover:text-orange-400">
-                  <ExternalLink size={16} /> mtbh.fr/daf
-                </Link>
-              </div>
-            </div>
-            <div className="flex items-start gap-4">
-              <Briefcase className="mt-1 h-6 w-6 text-orange-400" />
-              <div>
-                <h3 className="text-lg font-semibold">Projets personnels</h3>
-                <ul className="mt-2 ml-5 list-disc space-y-1">
-                  <li>
-                    <Link href="https://mathisboche.fr" className="inline-flex items-center gap-1 underline hover:text-orange-400">
-                      <ExternalLink size={16} /> mathisboche.fr
-                    </Link>
-                    — ancienne version du site
-                  </li>
-                  <li>
-                    <Link href="https://mtbh.fr" className="inline-flex items-center gap-1 underline hover:text-orange-400">
-                      <ExternalLink size={16} /> mtbh.fr
-                    </Link>
-                    — raccourcisseur de liens
-                  </li>
-                </ul>
+                <h3 className="text-lg font-semibold">DAFFE 1 — Animateur échecs</h3>
+                <p className="text-sm text-neutral-400">Diplômé en 2024, expérience terrain à Bois-Colombes & Cité des sciences</p>
+                <a href="https://mtbh.fr/daffe" target="_blank" rel="noopener noreferrer" className="mt-1 inline-flex items-center gap-1 underline hover:text-orange-400">
+                  <ExternalLink size={16} /> mtbh.fr/daffe
+                </a>
               </div>
             </div>
           </div>
@@ -159,31 +153,34 @@ export default function Home() {
 
         <SectionCard icon={Crown} title="Échecs">
           <ul className="ml-5 list-disc space-y-1 text-base leading-relaxed">
-            <li>Classement : 1725 (standard), 1687 (rapide), 1694 (blitz)</li>
-            <li>Membre du club de Bois‑Colombes</li>
-            <li>Deux participations aux Championnats de France Jeunes</li>
+            <li>Classement FIDE : 1746 (standard), 1687 (rapide), 1694 (blitz)</li>
+            <li>Club : Bois‑Colombes</li>
             <li>Animateur à la Cité des sciences (depuis 2025)</li>
+            <li>Deux championnats de France Jeunes</li>
           </ul>
-          <Link href="https://mtbh.fr/chess" className="mt-3 inline-flex items-center gap-1 underline hover:text-orange-400">
-            <ExternalLink size={16} /> mtbh.fr/chess
-          </Link>
+          <a href="https://mtbh.fr/fide" target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex items-center gap-1 underline hover:text-orange-400">
+            <ExternalLink size={16} /> mtbh.fr/fide
+          </a>
         </SectionCard>
 
-        <SectionCard icon={Mail} title="Contact">
+        <SectionCard icon={Mail} title="Contact & réseaux">
           <div className="space-y-4 text-base">
-            <a href="mailto:mathis@boche.co" className="inline-flex items-center gap-2 underline hover:text-orange-400">
+            <a href={mailto} className="inline-flex items-center gap-2 underline hover:text-orange-400">
               <Mail size={18} /> mathis@boche.co
             </a>
             <div className="flex flex-wrap items-center gap-6">
-              <a href="https://github.com/mathisboche" className="inline-flex items-center gap-1 underline hover:text-orange-400">
-                <Github size={18} /> GitHub
-              </a>
-              <a href="https://linkedin.com/in/mathisboche" className="inline-flex items-center gap-1 underline hover:text-orange-400">
+
+              <a href="https://linkedin.com/in/mathis-boche" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 underline hover:text-orange-400">
                 <Linkedin size={18} /> LinkedIn
               </a>
-              <a href="https://mtbh.fr" className="inline-flex items-center gap-1 underline hover:text-orange-400">
-                <ExternalLink size={18} /> mtbh.fr
+              <a href="https://github.com/mathisboche" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 underline hover:text-orange-400">
+                <Github size={18} /> GitHub
               </a>
+              <a href="https://instagram.com/mathis.boche" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 underline hover:text-orange-400">
+                <Instagram size={18} /> Instagram
+              </a>
+
+              {/* Lien mtbh.fr supprimé ici */}
             </div>
           </div>
         </SectionCard>
@@ -191,8 +188,8 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="mx-auto mb-12 text-center text-sm text-neutral-500">
-        Dernière mise à jour : avril 2025 • Hébergé sur Vercel
+        Dernière mise à jour : mai 2025 • Hébergé sur Vercel
       </footer>
     </main>
-);
+  );
 }

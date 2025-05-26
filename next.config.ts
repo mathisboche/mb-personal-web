@@ -5,12 +5,12 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        source: '/daf',          // mtbh.fr/daf
-        destination: 'https://ratings.fide.com/profile/651010240',
+        source: '/daffe',          // mtbh.fr/daf
+        destination: 'https://www.echecs.asso.fr/Reglements/Reglements2015/4%205%20DAFFE%201r%20degre.pdf',
         permanent: true,         // 308 / 301 (SEO + cache navigateur)
       },
       {
-        source: '/chess',        // mtbh.fr/chess
+        source: '/fide',        // mtbh.fr/chess
         destination: 'https://ratings.fide.com/profile/651010240',
         permanent: true,
       },

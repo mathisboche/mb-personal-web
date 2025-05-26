@@ -1,40 +1,89 @@
-# Mathis Boche - Portfolio
+Voici un **README** repensé pour coller à ton image :
 
-Ce projet est le site web personnel de Mathis Boche, un lycéen passionné par le développement web et les échecs. Il présente son parcours, ses compétences, ses projets, et ses objectifs futurs.
+* **Communication & web**
+* **Responsable ChessMates**
+* **Échecs**
+* **Professionnel, simple, direct**
+* **Aucune mention d’un “développeur passionné”/élève classique**
+* **Valorisation branding personnel et mission**
 
-## Technologies utilisées
+---
 
-- **Framework** : [Next.js](https://nextjs.org/)
-- **Style** : [TailwindCSS](https://tailwindcss.com/)
-- **Police** : [Google Fonts](https://fonts.google.com/) - Oswald & Source Sans Pro
-- **Icons** : [React Icons](https://react-icons.github.io/react-icons/)
+````markdown
+# Mathis Boche — Site personnel
+
+**Responsable communication web chez ChessMates International.**  
+Joueur d’échecs, animateur DAFFE 1, et spécialiste de la communication digitale.
+
+Ce site présente mon parcours, mes expériences dans les échecs, mon travail chez ChessMates International et mes liens professionnels.
+
+---
+
+## Aperçu
+
+- Présentation claire : qui je suis, mon engagement chez ChessMates, et mes activités dans le monde des échecs.
+- Design moderne, dynamique, et personnalisé (Next.js + TailwindCSS).
+- Accès rapide à mes réseaux : LinkedIn, Instagram, GitHub, contact mail avec objet prérempli.
+
+---
+
+## Stack technique
+
+- **Framework** : [Next.js](https://nextjs.org/)
+- **Style** : [TailwindCSS](https://tailwindcss.com/)
+- **Animations** : [Framer Motion](https://www.framer.com/motion/)
+- **Icônes** : [lucide-react](https://lucide.dev/)
+
+---
 
 ## Fonctionnalités principales
 
-- **Sections :**
-  - Accueil (hero section)
-  - À propos
-  - Projets
-  - Compétences
-  - Contact
-- **Design** :
-  - Animations CSS (ex. : rotation lente, gradients animés)
-  - Couleurs sombres modernes avec des accents orange (#FF4500)
-- **Responsive** : Optimisé pour les écrans mobiles, tablettes, et desktop.
-- **SEO** :
-  - Métadonnées configurées pour les réseaux sociaux (Open Graph, Twitter Cards)
-  - URL canonique : `https://www.mathisboche.fr`
+- **Sections principales** : 
+  - Présentation
+  - Expériences (ChessMates International, DAFFE 1, échecs)
+  - Contact & réseaux
+- **Responsive** : affichage optimisé sur mobile, tablette, desktop.
+- **SEO** : métadonnées pensées pour référencement et réseaux sociaux.
 
-## Instructions pour l'installation
+---
+
+## Installer localement
 
 ### Prérequis
 
-- Node.js (version 16 ou supérieure)
+- Node.js 18+ recommandé
 - npm ou yarn
 
-### Installation
+### Étapes
 
-1. Clonez ce dépôt :
+1. Clone ce repo :
    ```bash
-   git clone https://github.com/votre-utilisateur/votre-depot.git
-   cd votre-depot
+   git clone https://github.com/mathisboche/site-web-2.0.git
+   cd site-web-2.0
+````
+
+2. Installe les dépendances :
+
+   ```bash
+   npm install
+   ```
+3. Lance le serveur de développement :
+
+   ```bash
+   npm run dev
+   ```
+
+---
+
+## Licence
+
+Code sous licence MIT.
+Design, images et contenus : tous droits réservés.
+
+---
+
+> **Contact pro** : [mathis@boche.co](mailto:mathis@boche.co?subject=Contact%20via%20le%20site%20web)
+>
+> [chessmatesinternational.com](https://chessmatesinternational.com) · [Instagram](https://instagram.com/mathisboche) · [LinkedIn](https://linkedin.com/in/mathisboche)
+
+```
