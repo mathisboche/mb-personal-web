@@ -1,15 +1,3 @@
-Voici un **README** repensé pour coller à ton image :
-
-* **Communication & web**
-* **Responsable ChessMates**
-* **Échecs**
-* **Professionnel, simple, direct**
-* **Aucune mention d’un “développeur passionné”/élève classique**
-* **Valorisation branding personnel et mission**
-
----
-
-````markdown
 # Mathis Boche — Site personnel
 
 **Responsable communication web chez ChessMates International.**  
