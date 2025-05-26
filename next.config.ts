@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: '/daffe',          // mtbh.fr/daf
-        destination: 'https://www.echecs.asso.fr/Reglements/Reglements2015/4%205%20DAFFE%201r%20degre.pdf',
+        destination: 'https://www.echecs.asso.fr/Reglements/Reglements2012/4%205%20DAFFE%201r%20degre.pdf',
         permanent: true,         // 308 / 301 (SEO + cache navigateur)
       },
       {
