@@ -72,5 +72,3 @@ Design, images et contenus : tous droits réservés.
 > **Contact pro** : [mathis@boche.co](mailto:mathis@boche.co?subject=Contact%20via%20le%20site%20web)
 >
 > [chessmatesinternational.com](https://chessmatesinternational.com) · [Instagram](https://instagram.com/mathis.boche) · [LinkedIn](https://linkedin.com/in/mathis-boche)
-
-```
