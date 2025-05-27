@@ -18,10 +18,6 @@ const nextConfig: NextConfig = {
       // GITHUB
       { source: '/gh', destination: 'https://github.com/MathisBoche', permanent: true },
       { source: '/github', destination: 'https://github.com/MathisBoche', permanent: true },
-
-      // EMAIL
-      { source: '/mail', destination: 'mailto:mathis@boche.co', permanent: true },
-      { source: '/email', destination: 'mailto:mathis@boche.co', permanent: true },
     ]
   },
 }
