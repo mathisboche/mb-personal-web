@@ -12,8 +12,8 @@ const nextConfig: NextConfig = {
       { source: '/instagram', destination: 'https://www.instagram.com/mathis.boche/', permanent: true },
 
       // LINKEDIN
-      { source: '/in', destination: 'https://www.linkedin.com/in/mathisboche/', permanent: true },
-      { source: '/linkedin', destination: 'https://www.linkedin.com/in/mathisboche/', permanent: true },
+      { source: '/in', destination: 'https://www.linkedin.com/in/mathis-boche/', permanent: true },
+      { source: '/linkedin', destination: 'https://www.linkedin.com/in/mathis-boche/', permanent: true },
 
       // GITHUB
       { source: '/gh', destination: 'https://github.com/MathisBoche', permanent: true },
