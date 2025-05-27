@@ -170,17 +170,15 @@ export default function Home() {
             </a>
             <div className="flex flex-wrap items-center gap-6">
 
-              <a href="https://linkedin.com/in/mathis-boche" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 underline hover:text-orange-400">
+              <a href="https://mtbh.fr/linkedin" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 underline hover:text-orange-400">
                 <Linkedin size={18} /> LinkedIn
               </a>
-              <a href="https://github.com/mathisboche" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 underline hover:text-orange-400">
+              <a href="https://mtbh.fr/github" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 underline hover:text-orange-400">
                 <Github size={18} /> GitHub
               </a>
-              <a href="https://instagram.com/mathis.boche" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 underline hover:text-orange-400">
+              <a href="https://mtbh.fr/instagram" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 underline hover:text-orange-400">
                 <Instagram size={18} /> Instagram
               </a>
-
-              {/* Lien mtbh.fr supprimé ici */}
             </div>
           </div>
         </SectionCard>

@@ -97,7 +97,7 @@ const schemaPerson = {
   ],
   sameAs: [
     "https://github.com/mathisboche",
-    "https://linkedin.com/in/mathisboche",
+    "https://linkedin.com/in/mathis-boche",
   ],
 } as const;
 
