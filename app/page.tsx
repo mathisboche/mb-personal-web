@@ -80,12 +80,12 @@ export default function Home() {
             Communication et web pour ChessMates International. Joueur d’échecs passionné.
           </p>
           <div className="mt-8 flex flex-wrap justify-center md:justify-start gap-4">
-            <a
-              href={mailto}
-              className="inline-flex items-center gap-2 rounded-full border border-orange-400 px-5 py-2 text-sm font-medium transition hover:bg-orange-400 hover:text-neutral-900"
-            >
-              Me contacter
-            </a>
+          <a
+            href="/contact"
+            className="inline-flex items-center gap-2 rounded-full border border-orange-400 px-5 py-2 text-sm font-medium transition hover:bg-orange-400 hover:text-neutral-900"
+          >
+            Me contacter
+          </a>
             <a
               href="#xp"
               className="inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2 text-sm font-medium transition hover:border-orange-400"

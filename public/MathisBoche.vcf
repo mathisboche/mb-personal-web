@@ -1,0 +1,14 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Boche;Mathis;;;
+FN:Mathis Boche
+ORG:ChessMates International
+TITLE:Responsable communication
+EMAIL;TYPE=INTERNET:mathis@boche.co
+TEL;TYPE=CELL:+33 6 01 86 85 89
+URL:https://mathisboche.com
+X-SOCIALPROFILE;type=linkedin:https://www.linkedin.com/in/mathis-boche/
+X-SOCIALPROFILE;type=instagram:https://www.instagram.com/mathis.boche/
+X-SOCIALPROFILE;type=github:https://github.com/MathisBoche
+NOTE:Bilingue français/russe/anglais. Passionné d’échecs et de web.
+END:VCARD
