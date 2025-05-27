@@ -6,7 +6,7 @@ import { Mail } from "lucide-react";
 export default function MailPage() {
   useEffect(() => {
     window.location.href =
-      "mailto:mathis@boche.co?subject=Contact%20depuis%20mtbh.fr";
+      "mailto:mathis@boche.co?subject=Contact";
   }, []);
 
   return (
