@@ -1,4 +1,3 @@
-// app/contact/page.tsx
 "use client";
 
 import { useEffect, useState } from "react";
@@ -23,7 +22,6 @@ function detectLang() {
 export default function ContactPage() {
   const [lang, setLang] = useState<"fr" | "en">("en");
 
-  // Détection + mémorisation
   useEffect(() => {
     const saved = typeof window !== "undefined" && localStorage.getItem("lang");
     if (saved === "fr" || saved === "en") setLang(saved);
@@ -35,25 +33,29 @@ export default function ContactPage() {
   }, [lang]);
 
   const t = translations[lang];
-
-  // Données de contact
   const mailto = "mailto:mathis@boche.co?subject=Contact";
-  const tel    = "+33601868589";
-  const waBase = "https://wa.me/33601868589?text=";
-  const waLink = waBase + encodeURIComponent(lang === "fr" ? "Bonjour !" : "Hello!");
+  const tel = "+33601868589";
+  const waLink =
+    "https://wa.me/33601868589?text=" +
+    encodeURIComponent(lang === "fr" ? "Bonjour !" : "Hello!");
 
   return (
     <main className="flex min-h-screen w-full items-center justify-center bg-gradient-to-br from-[#0b1e40] via-[#141327] to-black relative text-neutral-100">
-      {/* Sélecteur de langue */}
-      <div className="absolute top-4 right-4 z-50">
-        <select
-          value={lang}
-          onChange={e => setLang(e.target.value as "fr" | "en")}
-          className="rounded-full bg-neutral-900/70 border px-3 py-1 text-sm"
-        >
-          <option value="fr">🇫🇷 Français</option>
-          <option value="en">🇬🇧 English</option>
-        </select>
+      {/* Toggle langue minimal */}
+      <div className="absolute top-4 right-4 z-50 flex space-x-2 text-sm font-medium">
+        {(["fr", "en"] as const).map((code) => (
+          <button
+            key={code}
+            onClick={() => setLang(code)}
+            className={`transition-colors ${
+              lang === code
+                ? "text-orange-400"
+                : "text-neutral-400 hover:text-orange-400"
+            }`}
+          >
+            {code.toUpperCase()}
+          </button>
+        ))}
       </div>
 
       {/* Bouton Retour */}
@@ -65,29 +67,23 @@ export default function ContactPage() {
       </Link>
 
       <div className="relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md shadow-2xl w-[95vw] max-w-lg p-6 flex flex-col items-center gap-4 sm:p-10">
-        {/* Titre */}
         <h1 className="font-spaceGrotesk text-2xl sm:text-3xl font-bold text-orange-400 mb-2 text-center">
           {t.contactPageTitle}
         </h1>
 
         <div className="w-full flex flex-col gap-3">
-          {/* Email */}
           <a
             href={mailto}
             className="flex items-center gap-2 rounded-full border border-orange-400 px-5 py-2 text-sm font-medium transition hover:bg-orange-400 hover:text-neutral-900 text-orange-400 bg-white/10 justify-center"
           >
             <Mail size={18} /> {t.emailLabel}
           </a>
-
-          {/* Appel */}
           <a
             href={`tel:${tel}`}
             className="flex items-center gap-2 rounded-full border border-orange-400 px-5 py-2 text-sm font-medium transition hover:bg-orange-400 hover:text-neutral-900 text-orange-400 bg-white/10 justify-center"
           >
             <Phone size={18} /> {t.callLabel}
           </a>
-
-          {/* WhatsApp */}
           <a
             href={waLink}
             target="_blank"
@@ -97,7 +93,6 @@ export default function ContactPage() {
             <MessageCircle size={18} /> {t.whatsappLabel}
           </a>
 
-          {/* Socials */}
           <div className="flex flex-wrap gap-4 justify-center mt-3">
             <a
               href="https://www.linkedin.com/in/mathis-boche/"
@@ -126,7 +121,6 @@ export default function ContactPage() {
           </div>
         </div>
 
-        {/* VCF */}
         <a
           href="/MathisBoche.vcf"
           download="MathisBoche.vcf"
@@ -135,7 +129,6 @@ export default function ContactPage() {
           <Download size={18} /> {t.addContactLabel}
         </a>
 
-        {/* Infos brutes */}
         <div className="mt-2 text-xs text-neutral-400 text-center">
           <div>
             {t.emailInfoLabel}{" "}

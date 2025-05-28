@@ -29,7 +29,7 @@ const fadeUp: Variants = {
 function SectionCard({
   icon: Icon,
   title,
-  children
+  children,
 }: {
   icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   title: string;
@@ -55,14 +55,12 @@ function SectionCard({
 
 function detectLang() {
   if (typeof window === "undefined") return "en";
-  const nav = window.navigator.language;
-  return nav.startsWith("fr") ? "fr" : "en";
+  return navigator.language.startsWith("fr") ? "fr" : "en";
 }
 
 export default function Home() {
   const [lang, setLang] = useState<"fr" | "en">("en");
 
-  // Détection et mémorisation
   useEffect(() => {
     const saved = typeof window !== "undefined" && localStorage.getItem("lang");
     if (saved === "fr" || saved === "en") setLang(saved);
@@ -78,16 +76,21 @@ export default function Home() {
 
   return (
     <main className="relative min-h-screen w-full overflow-x-hidden text-neutral-100 selection:bg-orange-500/80 selection:text-neutral-900">
-      {/* Sélecteur */}
-      <div className="absolute top-4 right-4 z-10">
-        <select
-          value={lang}
-          onChange={(e) => setLang(e.target.value as "fr" | "en")}
-          className="rounded-full bg-neutral-900/70 border px-3 py-1 text-sm"
-        >
-          <option value="fr">🇫🇷 Français</option>
-          <option value="en">🇬🇧 English</option>
-        </select>
+      {/* Toggle langue minimal */}
+      <div className="absolute top-4 right-4 z-10 flex space-x-2 text-sm font-medium">
+        {(["fr", "en"] as const).map((code) => (
+          <button
+            key={code}
+            onClick={() => setLang(code)}
+            className={`transition-colors ${
+              lang === code
+                ? "text-orange-400"
+                : "text-neutral-400 hover:text-orange-400"
+            }`}
+          >
+            {code.toUpperCase()}
+          </button>
+        ))}
       </div>
 
       {/* SEO */}
@@ -151,12 +154,11 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Main Sections */}
+      {/* Sections */}
       <div
         id="xp"
         className="mx-auto mt-32 mb-24 grid w-full max-w-5xl grid-cols-1 gap-12 px-6 md:grid-cols-2 scroll-mt-[24px]"
       >
-        {/* À propos / About */}
         <SectionCard icon={Info} title={t.aboutTitle}>
           <ul className="ml-5 list-disc space-y-1 text-base leading-relaxed">
             {t.aboutList.map((item, i) => (
@@ -165,7 +167,6 @@ export default function Home() {
           </ul>
         </SectionCard>
 
-        {/* Expériences / Experience */}
         <SectionCard icon={Briefcase} title={t.expTitle}>
           <div className="space-y-6">
             <div className="flex items-start gap-4">
@@ -201,7 +202,6 @@ export default function Home() {
           </div>
         </SectionCard>
 
-        {/* Échecs / Chess */}
         <SectionCard icon={Crown} title={t.chessTitle}>
           <ul className="ml-5 list-disc space-y-1 text-base leading-relaxed">
             {t.chessList.map((item, i) => (
@@ -218,7 +218,6 @@ export default function Home() {
           </a>
         </SectionCard>
 
-        {/* Contact & social */}
         <SectionCard icon={Mail} title={t.contactTitle}>
           <div className="space-y-4 text-base">
             <a
