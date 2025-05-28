@@ -25,6 +25,9 @@ const nextConfig: NextConfig = {
 
       // CONTACT SHORTLINK
       { source: '/me', destination: '/contact', permanent: true },
+
+      // BAC REDIRECT
+      { source: '/bac', destination: 'https://bac.mathisboche.com', permanent: true },
     ]
   },
 }
