@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import {
   Mail,
   Github,
@@ -14,6 +15,7 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
+import { translations } from "./lang";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -24,7 +26,15 @@ const fadeUp: Variants = {
   }),
 };
 
-function SectionCard({ icon: Icon, title, children }: { icon: React.ComponentType<React.SVGProps<SVGSVGElement>>; title: string; children: React.ReactNode }) {
+function SectionCard({
+  icon: Icon,
+  title,
+  children
+}: {
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  title: string;
+  children: React.ReactNode;
+}) {
   return (
     <motion.div
       initial="hidden"
@@ -43,20 +53,48 @@ function SectionCard({ icon: Icon, title, children }: { icon: React.ComponentTyp
   );
 }
 
+function detectLang() {
+  if (typeof window === "undefined") return "en";
+  const nav = window.navigator.language;
+  return nav.startsWith("fr") ? "fr" : "en";
+}
+
 export default function Home() {
-  // Objet email
+  const [lang, setLang] = useState<"fr" | "en">("en");
+
+  // Détection et mémorisation
+  useEffect(() => {
+    const saved = typeof window !== "undefined" && localStorage.getItem("lang");
+    if (saved === "fr" || saved === "en") setLang(saved);
+    else setLang(detectLang());
+  }, []);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") localStorage.setItem("lang", lang);
+  }, [lang]);
+
+  const t = translations[lang];
   const mailto = "mailto:mathis@boche.co?subject=Contact%20via%20le%20site%20web";
 
   return (
     <main className="relative min-h-screen w-full overflow-x-hidden text-neutral-100 selection:bg-orange-500/80 selection:text-neutral-900">
+      {/* Sélecteur */}
+      <div className="absolute top-4 right-4 z-10">
+        <select
+          value={lang}
+          onChange={(e) => setLang(e.target.value as "fr" | "en")}
+          className="rounded-full bg-neutral-900/70 border px-3 py-1 text-sm"
+        >
+          <option value="fr">🇫🇷 Français</option>
+          <option value="en">🇬🇧 English</option>
+        </select>
+      </div>
+
       {/* SEO */}
       <head>
         <title>Mathis Boche — Échecs, Communication & Web</title>
-        <meta
-          name="description"
-          content="Mathis Boche : passionné d’échecs, animateur ChessMates, créateur web et responsable communication. Découvrez mon parcours, mes expériences et contactez-moi."
-        />
-        <meta name="keywords" content="Mathis Boche, échecs, ChessMates, animateur, communication, site web, Bois-Colombes, DAFFE 1, compétitions, réseau, Instagram" />
+        <meta name="description" content={t.heroDesc} />
+        <meta name="keywords" content="Mathis Boche, échecs, ChessMates, communication, web" />
         <meta name="robots" content="index, follow" />
       </head>
 
@@ -74,23 +112,23 @@ export default function Home() {
           className="flex-1 text-center md:text-left"
         >
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight bg-gradient-to-r from-orange-400 via-yellow-300 to-orange-500 bg-clip-text text-transparent drop-shadow-[0_3px_6px_rgba(0,0,0,0.25)]">
-            Mathis&nbsp;Boche
+            {t.heroTitle}
           </h1>
           <p className="mt-6 text-lg sm:text-xl leading-relaxed max-w-lg mx-auto md:mx-0">
-            Communication et web pour ChessMates International. Joueur d’échecs passionné.
+            {t.heroDesc}
           </p>
           <div className="mt-8 flex flex-wrap justify-center md:justify-start gap-4">
-          <a
-            href="/contact"
-            className="inline-flex items-center gap-2 rounded-full border border-orange-400 px-5 py-2 text-sm font-medium transition hover:bg-orange-400 hover:text-neutral-900"
-          >
-            Me contacter
-          </a>
+            <a
+              href="/contact"
+              className="inline-flex items-center gap-2 rounded-full border border-orange-400 px-5 py-2 text-sm font-medium transition hover:bg-orange-400 hover:text-neutral-900"
+            >
+              {t.contact}
+            </a>
             <a
               href="#xp"
               className="inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2 text-sm font-medium transition hover:border-orange-400"
             >
-              Voir mon parcours
+              {t.parcours}
             </a>
           </div>
         </motion.div>
@@ -113,71 +151,106 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Main Sections Grid */}
-      <div id="xp" className="mx-auto mt-32 mb-24 grid w-full max-w-5xl grid-cols-1 gap-12 px-6 md:grid-cols-2 scroll-mt-[24px] md:scroll-mt-[24px]">
-        
-        <SectionCard icon={Info} title="À propos">
+      {/* Main Sections */}
+      <div
+        id="xp"
+        className="mx-auto mt-32 mb-24 grid w-full max-w-5xl grid-cols-1 gap-12 px-6 md:grid-cols-2 scroll-mt-[24px]"
+      >
+        {/* À propos / About */}
+        <SectionCard icon={Info} title={t.aboutTitle}>
           <ul className="ml-5 list-disc space-y-1 text-base leading-relaxed">
-            <li>17 ans, lycéen à Montrouge</li>
-            <li>Responsable communication ChessMates International</li>
-            <li>DAFFE 1 — Animateur diplômé</li>
-            <li>Joueur d’échecs de compétition, club de Bois-Colombes</li>
-            <li>Entrepreneuriat & web, focus efficacité</li>
+            {t.aboutList.map((item, i) => (
+              <li key={i}>{item}</li>
+            ))}
           </ul>
         </SectionCard>
 
-        <SectionCard icon={Briefcase} title="Expériences">
+        {/* Expériences / Experience */}
+        <SectionCard icon={Briefcase} title={t.expTitle}>
           <div className="space-y-6">
             <div className="flex items-start gap-4">
               <Crown className="mt-1 h-6 w-6 text-orange-400" />
               <div>
-                <h3 className="text-lg font-semibold">ChessMates International</h3>
-                <p className="text-sm text-neutral-400">Responsable communication & site web (2024–...)</p>
-                <a href="https://chessmatesinternational.com" target="_blank" rel="noopener noreferrer" className="mt-1 inline-flex items-center gap-1 underline hover:text-orange-400">
-                  <ExternalLink size={16} /> chessmatesinternational.com
+                <h3 className="text-lg font-semibold">{t.exp1Title}</h3>
+                <p className="text-sm text-neutral-400">{t.exp1Desc}</p>
+                <a
+                  href={`https://${t.exp1Link}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-1 inline-flex items-center gap-1 underline hover:text-orange-400"
+                >
+                  <ExternalLink size={16} /> {t.exp1Link}
                 </a>
               </div>
             </div>
             <div className="flex items-start gap-4">
               <Award className="mt-1 h-6 w-6 text-orange-400" />
               <div>
-                <h3 className="text-lg font-semibold">DAFFE 1 — Animateur échecs</h3>
-                <p className="text-sm text-neutral-400">Diplômé en 2024, expérience terrain à Bois-Colombes & Cité des sciences</p>
-                <a href="https://mtbh.fr/daffe" target="_blank" rel="noopener noreferrer" className="mt-1 inline-flex items-center gap-1 underline hover:text-orange-400">
-                  <ExternalLink size={16} /> mtbh.fr/daffe
+                <h3 className="text-lg font-semibold">{t.exp2Title}</h3>
+                <p className="text-sm text-neutral-400">{t.exp2Desc}</p>
+                <a
+                  href={`https://${t.exp2Link}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-1 inline-flex items-center gap-1 underline hover:text-orange-400"
+                >
+                  <ExternalLink size={16} /> {t.exp2Link}
                 </a>
               </div>
             </div>
           </div>
         </SectionCard>
 
-        <SectionCard icon={Crown} title="Échecs">
+        {/* Échecs / Chess */}
+        <SectionCard icon={Crown} title={t.chessTitle}>
           <ul className="ml-5 list-disc space-y-1 text-base leading-relaxed">
-            <li>Classement FIDE : 1746 (standard), 1687 (rapide), 1694 (blitz)</li>
-            <li>Club : Bois‑Colombes</li>
-            <li>Animateur à la Cité des sciences (depuis 2025)</li>
-            <li>Deux championnats de France Jeunes</li>
+            {t.chessList.map((item, i) => (
+              <li key={i}>{item}</li>
+            ))}
           </ul>
-          <a href="https://mtbh.fr/fide" target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex items-center gap-1 underline hover:text-orange-400">
+          <a
+            href="https://mtbh.fr/fide"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 inline-flex items-center gap-1 underline hover:text-orange-400"
+          >
             <ExternalLink size={16} /> mtbh.fr/fide
           </a>
         </SectionCard>
 
-        <SectionCard icon={Mail} title="Contact & réseaux">
+        {/* Contact & social */}
+        <SectionCard icon={Mail} title={t.contactTitle}>
           <div className="space-y-4 text-base">
-            <a href={mailto} className="inline-flex items-center gap-2 underline hover:text-orange-400">
-              <Mail size={18} /> mathis@boche.co
+            <a
+              href={mailto}
+              className="inline-flex items-center gap-2 underline hover:text-orange-400"
+            >
+              <Mail size={18} /> {t.email}
             </a>
             <div className="flex flex-wrap items-center gap-6">
-
-              <a href="https://mtbh.fr/linkedin" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 underline hover:text-orange-400">
-                <Linkedin size={18} /> LinkedIn
+              <a
+                href="https://mtbh.fr/linkedin"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 underline hover:text-orange-400"
+              >
+                <Linkedin size={18} /> {t.linkedIn}
               </a>
-              <a href="https://mtbh.fr/github" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 underline hover:text-orange-400">
-                <Github size={18} /> GitHub
+              <a
+                href="https://mtbh.fr/github"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 underline hover:text-orange-400"
+              >
+                <Github size={18} /> {t.github}
               </a>
-              <a href="https://mtbh.fr/instagram" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 underline hover:text-orange-400">
-                <Instagram size={18} /> Instagram
+              <a
+                href="https://mtbh.fr/instagram"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 underline hover:text-orange-400"
+              >
+                <Instagram size={18} /> {t.instagram}
               </a>
             </div>
           </div>
@@ -186,7 +259,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="mx-auto mb-12 text-center text-sm text-neutral-500">
-        Dernière mise à jour : mai 2025 • Hébergé sur Vercel
+        {t.lastUpdate}
       </footer>
     </main>
   );
