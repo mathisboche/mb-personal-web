@@ -13,18 +13,7 @@ import {
   Crown,
   Instagram,
 } from "lucide-react";
-import { motion } from "framer-motion";
-import type { Variants } from "framer-motion";
 import { translations } from "./lang";
-
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  show: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: 0.15 * i, duration: 0.7, ease: "easeOut" },
-  }),
-};
 
 function SectionCard({
   icon: Icon,
@@ -36,20 +25,13 @@ function SectionCard({
   children: React.ReactNode;
 }) {
   return (
-    <motion.div
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.3 }}
-      variants={fadeUp}
-      custom={0}
-      className="relative rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md p-6 shadow-2xl hover:shadow-orange-500/20 transition-shadow overflow-hidden"
-    >
+    <div className="relative rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md p-6 shadow-2xl hover:shadow-orange-500/20 transition-shadow overflow-hidden">
       <Icon className="absolute top-4 right-4 h-12 w-12 text-orange-400 opacity-20 rotate-45" />
       <h2 className="flex items-center font-spaceGrotesk text-2xl text-orange-400 mb-4">
         {title}
       </h2>
       {children}
-    </motion.div>
+    </div>
   );
 }
 
@@ -97,7 +79,10 @@ export default function Home() {
       <head>
         <title>Mathis Boche — Échecs, Communication & Web</title>
         <meta name="description" content={t.heroDesc} />
-        <meta name="keywords" content="Mathis Boche, échecs, ChessMates, communication, web" />
+        <meta
+          name="keywords"
+          content="Mathis Boche, échecs, ChessMates, communication, web"
+        />
         <meta name="robots" content="index, follow" />
       </head>
 
@@ -108,12 +93,7 @@ export default function Home() {
 
       {/* Hero */}
       <section className="relative mx-auto flex max-w-6xl flex-col-reverse items-center gap-12 px-6 pt-28 sm:pt-32 md:flex-row md:items-center lg:gap-20">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: "easeOut" }}
-          className="flex-1 text-center md:text-left"
-        >
+        <div className="flex-1 text-center md:text-left">
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight bg-gradient-to-r from-orange-400 via-yellow-300 to-orange-500 bg-clip-text text-transparent drop-shadow-[0_3px_6px_rgba(0,0,0,0.25)]">
             {t.heroTitle}
           </h1>
@@ -134,14 +114,9 @@ export default function Home() {
               {t.parcours}
             </a>
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.9, ease: "easeOut", delay: 0.2 }}
-          className="relative flex-shrink-0"
-        >
+        <div className="relative flex-shrink-0">
           <Image
             src="/images/mathis-echecs.JPG"
             alt="Mathis à l'échiquier"
@@ -151,7 +126,7 @@ export default function Home() {
             priority
           />
           <span className="absolute inset-0 rounded-3xl border border-orange-400/30" />
-        </motion.div>
+        </div>
       </section>
 
       {/* Sections */}
