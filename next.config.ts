@@ -22,6 +22,9 @@ const nextConfig: NextConfig = {
       // GITHUB
       { source: '/gh', destination: 'https://github.com/MathisBoche', permanent: true },
       { source: '/github', destination: 'https://github.com/MathisBoche', permanent: true },
+
+      // CONTACT SHORTLINK
+      { source: '/me', destination: '/contact', permanent: true },
     ]
   },
 }
