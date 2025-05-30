@@ -47,7 +47,7 @@ Ce site présente mon parcours, mes expériences dans les échecs, mon travail c
 1. Clone ce repo :
    ```bash
    git clone https://github.com/mathisboche/site-web-2.0.git
-   cd site-web-2.0
+   cd mb-personal-web
 
 2. Installe les dépendances :
 
