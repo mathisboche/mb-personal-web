@@ -1,6 +1,7 @@
 // app/layout.tsx
 import "./globals.css";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { ReactNode } from "react";
 
@@ -153,6 +154,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       </head>
       <body className="bg-black text-white antialiased selection:bg-orange-500/80 selection:text-neutral-900 font-spaceGrotesk">
         {children}
+
+        {/* Vercel Analytics */}
+        <Analytics />
       </body>
     </html>
   );
