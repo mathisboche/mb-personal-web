@@ -1,3 +1,4 @@
+// app/layout.tsx
 import "./globals.css";
 import Script from "next/script";
 import type { Metadata } from "next";
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     "TailwindCSS",
     "portfolio",
     "DAFFE 1",
-    "animateur échecs"
+    "animateur échecs",
   ],
   category: "portfolio",
   themeColor: BRAND_ORANGE,
@@ -79,22 +80,16 @@ export const metadata: Metadata = {
 };
 
 // -----------------------------------------------------------------------------
-// Structured‑data (JSON‑LD)
+// Structured-data (JSON-LD)
 // -----------------------------------------------------------------------------
 const schemaPerson = {
   "@context": "https://schema.org",
   "@type": "Person",
-  name: "Mathis Boche",
+  name: "Mathis Boche",
   url: SITE_URL,
   image: `${SITE_URL}/images/mathis-echecs.JPG`,
   jobTitle: "Développeur Web",
-  knowsAbout: [
-    "Next.js",
-    "TypeScript",
-    "TailwindCSS",
-    "React",
-    "Échecs",
-  ],
+  knowsAbout: ["Next.js", "TypeScript", "TailwindCSS", "React", "Échecs"],
   sameAs: [
     "https://github.com/mathisboche",
     "https://linkedin.com/in/mathis-boche",
@@ -110,7 +105,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <head>
         {/* PWA & icons */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color={BRAND_ORANGE} />
+        <link
+          rel="mask-icon"
+          href="/safari-pinned-tab.svg"
+          color={BRAND_ORANGE}
+        />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
 
@@ -131,9 +130,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaPerson) }}
         />
-      </head>
-      <body className="bg-black text-white antialiased selection:bg-orange-500/80 selection:text-neutral-900 font-spaceGrotesk">
-        {/* Google Analytics / GA4 */}
+
+        {/* Google Analytics GA4 */}
         {GA_ID && (
           <>
             <Script
@@ -152,7 +150,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </Script>
           </>
         )}
-
+      </head>
+      <body className="bg-black text-white antialiased selection:bg-orange-500/80 selection:text-neutral-900 font-spaceGrotesk">
         {children}
       </body>
     </html>
