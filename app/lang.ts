@@ -40,7 +40,10 @@ export const translations = {
     whatsappLabel: "WhatsApp",
     addContactLabel: "Ajouter à mes contacts",
     emailInfoLabel: "Email :",
-    telInfoLabel: "Tel :"
+    telInfoLabel: "Tel :",
+    notFoundTitle: "Oups ! Page introuvable.",
+    notFoundDesc: "Le lien que vous avez suivi semble brisé ou la page a été déplacée.",
+    backHome: "Retour à l’accueil",
   },
   en: {
     heroTitle: "Mathis Boche",
@@ -82,6 +85,9 @@ export const translations = {
     whatsappLabel: "WhatsApp",
     addContactLabel: "Add to contacts",
     emailInfoLabel: "Email:",
-    telInfoLabel: "Phone:"
+    telInfoLabel: "Phone:",
+    notFoundTitle: "Oops! Page not found.",
+    notFoundDesc: "The link you followed seems broken or the page has been moved.",
+    backHome: "Back to home",
   }
 };
