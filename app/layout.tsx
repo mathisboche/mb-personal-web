@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: "%s — Mathis Boche",
   },
   description:
-    "Découvrez le parcours de Mathis Boche : gestion des réseaux sociaux et du site web de ChessMates International, joueur passionné d'échecs et créateur de contenu.",
+    "Communication et web chez ChessMates International. Joueur d’échecs.",
   keywords: [
     "Mathis Boche",
     "ChessMates International",
@@ -34,8 +34,7 @@ export const metadata: Metadata = {
     "Next.js",
     "TailwindCSS",
     "portfolio",
-    "DAFFE 1",
-    "animateur échecs",
+    "DAFFE 1"
   ],
   category: "portfolio",
   themeColor: BRAND_ORANGE,
@@ -49,13 +48,13 @@ export const metadata: Metadata = {
     siteName: "Mathis Boche",
     title: "Mathis Boche — Échecs, Communication et Web",
     description:
-      "Portfolio de Mathis Boche : gestion des réseaux sociaux, ChessMates International, échecs et projets web.",
+      "Communication et web chez ChessMates International. Joueur d’échecs.",
     images: [
       {
         url: `${SITE_URL}/og-image.jpg`,
         width: 1200,
         height: 630,
-        alt: "Mathis Boche — Portfolio Échecs & Communication",
+        alt: "Mathis Boche — Échecs & Communication",
       },
     ],
   },
@@ -64,7 +63,7 @@ export const metadata: Metadata = {
     creator: "@mathisboche",
     title: "Mathis Boche — Échecs, Communication et Web",
     description:
-      "Mathis Boche : Animateur chez ChessMates, joueur d'échecs passionné et créateur web.",
+      "Communication et web chez ChessMates International. Joueur d’échecs.",
     images: [`${SITE_URL}/og-image.jpg`],
   },
   robots: {
@@ -79,6 +78,7 @@ export const metadata: Metadata = {
     },
   },
 };
+
 
 // -----------------------------------------------------------------------------
 // Structured-data (JSON-LD)
