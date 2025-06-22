@@ -67,7 +67,7 @@ export default function ContactPage() {
       </Link>
 
       <div className="relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md shadow-2xl w-[95vw] max-w-lg p-6 flex flex-col items-center gap-4 sm:p-10">
-        <h1 className="font-spaceGrotesk text-2xl sm:text-3xl font-bold text-orange-400 mb-2 text-center">
+        <h1 className="font-display text-2xl sm:text-3xl font-bold text-orange-400 mb-2 text-center">
           {t.contactPageTitle}
         </h1>
 

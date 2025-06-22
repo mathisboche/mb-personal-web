@@ -12,6 +12,9 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        sans: ["Inter", "sans-serif"],             // texte courant
+        display: ["'Archivo Black'", "sans-serif"] // titres
     },
   },
   plugins: [],

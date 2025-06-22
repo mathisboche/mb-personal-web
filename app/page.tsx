@@ -27,7 +27,7 @@ function SectionCard({
   return (
     <div className="relative rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md p-6 shadow-2xl hover:shadow-orange-500/20 transition-shadow overflow-hidden">
       <Icon className="absolute top-4 right-4 h-12 w-12 text-orange-400 opacity-20 rotate-45" />
-      <h2 className="flex items-center font-spaceGrotesk text-2xl text-orange-400 mb-4">
+      <h2 className="flex items-center font-display text-2xl text-orange-400 mb-4">
         {title}
       </h2>
       {children}

@@ -117,7 +117,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {/* Performance: police principale (CLS) */}
         <link
           rel="preload"
-          href="/fonts/SpaceGrotesk-Variable.woff2"
+          href="/fonts/display"
           as="font"
           type="font/woff2"
           crossOrigin="anonymous"
@@ -152,7 +152,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           </>
         )}
       </head>
-      <body className="bg-black text-white antialiased selection:bg-orange-500/80 selection:text-neutral-900 font-spaceGrotesk">
+      <body className="bg-black text-white antialiased selection:bg-orange-500/80 selection:text-neutral-900 font-display">
         {children}
 
         {/* Vercel Analytics */}

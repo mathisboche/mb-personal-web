@@ -55,7 +55,7 @@ export default function NotFoundPage() {
       {/* Contenu principal */}
       <div className="relative flex flex-col items-center gap-6 rounded-3xl border border-white/10 bg-white/5 p-10 backdrop-blur-md shadow-2xl w-[90vw] max-w-xl text-center">
         <Ghost className="h-16 w-16 text-orange-400 opacity-80" />
-        <h1 className="font-spaceGrotesk text-4xl sm:text-5xl font-extrabold bg-gradient-to-r from-orange-400 via-yellow-300 to-orange-500 bg-clip-text text-transparent drop-shadow-[0_3px_6px_rgba(0,0,0,0.25)]">
+        <h1 className="font-display text-4xl sm:text-5xl font-extrabold bg-gradient-to-r from-orange-400 via-yellow-300 to-orange-500 bg-clip-text text-transparent drop-shadow-[0_3px_6px_rgba(0,0,0,0.25)]">
           404
         </h1>
         <p className="text-lg leading-relaxed">
