@@ -152,7 +152,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           </>
         )}
       </head>
-      <body className="bg-black text-white antialiased selection:bg-orange-500/80 selection:text-neutral-900 font-display">
+      <body className="font-sans bg-black text-white antialiased selection:bg-orange-500/80 selection:text-neutral-900">
         {children}
 
         {/* Vercel Analytics */}

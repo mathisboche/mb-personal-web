@@ -94,7 +94,7 @@ export default function Home() {
       {/* Hero */}
       <section className="relative mx-auto flex max-w-6xl flex-col-reverse items-center gap-12 px-6 pt-28 sm:pt-32 md:flex-row md:items-center lg:gap-20">
         <div className="flex-1 text-center md:text-left">
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight bg-gradient-to-r from-orange-400 via-yellow-300 to-orange-500 bg-clip-text text-transparent drop-shadow-[0_3px_6px_rgba(0,0,0,0.25)]">
+          <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl tracking-tight bg-gradient-to-r from-orange-400 via-yellow-300 to-orange-500 bg-clip-text text-transparent drop-shadow-[0_3px_6px_rgba(0,0,0,0.25)]">
             {t.heroTitle}
           </h1>
           <p className="mt-6 text-lg sm:text-xl leading-relaxed max-w-lg mx-auto md:mx-0">

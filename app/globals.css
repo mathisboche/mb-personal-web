@@ -35,12 +35,4 @@ body {
   @apply bg-orange-500/40 text-neutral-900;
 }
 
-/* Fonts */
-.font-display {
-  font-family: 'Archivo Black', sans-serif;
-}
 
-/* Utility for heading family */
-.font-heading {
-  font-family: 'Archivo Black', sans-serif;
-}
