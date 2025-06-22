@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss";
 
-export default {
+const config: Config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -13,9 +13,12 @@ export default {
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        sans: ["Inter", "sans-serif"],             // texte courant
-        display: ["'Archivo Black'", "sans-serif"] // titres
+        sans: ["Inter", "sans-serif"],          // texte courant
+        display: ["Archivo Black", "sans-serif"]// titres
+      },
     },
   },
   plugins: [],
-} satisfies Config;
+};
+
+export default config;
