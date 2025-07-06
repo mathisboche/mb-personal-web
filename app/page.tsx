@@ -54,7 +54,7 @@ export default function Home() {
   }, [lang]);
 
   const t = translations[lang];
-  const mailto = "mailto:mathis@boche.co?subject=Contact%20via%20le%20site%20web";
+  const mailto = "mailto:mathis@boche.co?subject=Contact";
 
   return (
     <main className="relative min-h-screen w-full overflow-x-hidden text-neutral-100 selection:bg-orange-500/80 selection:text-neutral-900">

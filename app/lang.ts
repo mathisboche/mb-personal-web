@@ -22,7 +22,7 @@ export const translations = {
     exp2Link: "mtbh.fr/daffe",
     chessTitle: "Échecs",
     chessList: [
-      "Classement FIDE : 1794 standard, 1743 rapide, 1694 blitz",
+      "Classement FIDE : 1791 standard, 1743 rapide, 1694 blitz",
       "Club : Bois-Colombes",
       "Animateur à la Cité des sciences depuis 2025",
       "Deux participations aux Championnats de France Jeunes"
@@ -67,7 +67,7 @@ export const translations = {
     exp2Link: "mtbh.fr/daffe",
     chessTitle: "Chess",
     chessList: [
-      "FIDE rating: 1794 standard, 1743 rapid, 1694 blitz",
+      "FIDE rating: 1791 standard, 1743 rapid, 1694 blitz",
       "Club: Bois-Colombes",
       "Instructor at Cité des sciences since 2025",
       "Two participations in French Youth Championships"
