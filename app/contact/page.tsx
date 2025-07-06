@@ -103,20 +103,20 @@ export default function ContactPage() {
               <Linkedin size={18} /> {t.linkedIn}
             </a>
             <a
-              href="https://github.com/MathisBoche"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 underline hover:text-orange-400"
-            >
-              <Github size={18} /> {t.github}
-            </a>
-            <a
               href="https://www.instagram.com/mathis.boche/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1 underline hover:text-orange-400"
             >
               <Instagram size={18} /> {t.instagram}
+            </a>
+                        <a
+              href="https://github.com/MathisBoche"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 underline hover:text-orange-400"
+            >
+              <Github size={18} /> {t.github}
             </a>
           </div>
         </div>
