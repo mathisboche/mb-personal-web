@@ -1,8 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import {
-  ArrowLeft, Plus, Save, Trash2, Copy, Languages
+import { ArrowLeft, Plus, Save, Trash2, Copy 
 } from 'lucide-react'
 import Link from 'next/link'
 import { toast } from 'sonner'               // npm i sonner
@@ -35,7 +34,7 @@ export default function Admin() {
       .then(r => r.json())
       .then(data => { setRules(data); setLoading(false) })
       .catch(() => toast.error('API error'))
-  }, [token])
+  }, [])
 
   /* ---- Handlers ---------------------------------------------------- */
   const reset = () => { setForm({ source: '', destination: '' }); setEditing(false) }
