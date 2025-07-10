@@ -9,7 +9,7 @@ export const config = {
 
 export function middleware(req: NextRequest) {
   /* -------- Zone protégée ---------------- */
-  const PROTECTED = ['/admin', '/api/redirects']
+  const PROTECTED = ['/api/redirects']
   if (PROTECTED.some(p => req.nextUrl.pathname.startsWith(p))) {
     const auth = req.headers.get('authorization') ?? ''
     const [scheme, token] = auth.split(' ')
