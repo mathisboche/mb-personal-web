@@ -1,0 +1,14 @@
+[
+  { "source": "/daffe",   "destination": "https://www.echecs.asso.fr/Reglements/Reglements2012/4%205%20DAFFE%201r%20degre.pdf" },
+  { "source": "/fide",    "destination": "https://ratings.fide.com/profile/651010240" },
+  { "source": "/chess",   "destination": "https://www.chess.com/member/mathis9748/stats" },
+  { "source": "/chesscom","destination": "https://www.chess.com/member/mathis9748/stats" },
+  { "source": "/ig",      "destination": "https://www.instagram.com/mathis.boche/" },
+  { "source": "/instagram","destination": "https://www.instagram.com/mathis.boche/" },
+  { "source": "/in",      "destination": "https://www.linkedin.com/in/mathis-boche/" },
+  { "source": "/linkedin","destination": "https://www.linkedin.com/in/mathis-boche/" },
+  { "source": "/gh",      "destination": "https://github.com/MathisBoche" },
+  { "source": "/github",  "destination": "https://github.com/MathisBoche" },
+  { "source": "/me",      "destination": "/contact" },
+  { "source": "/bac",     "destination": "https://bac.mathisboche.com" }
+]
