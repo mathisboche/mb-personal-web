@@ -15,7 +15,7 @@ export default function Admin() {
     })
       .then(r => r.json())
       .then(setRules)
-  }, [])
+  }, [token])   //  ← ajouté
 
   const save = async () => {
     await fetch('/api/redirects', {
