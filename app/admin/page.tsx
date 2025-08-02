@@ -33,7 +33,7 @@ export default function Admin() {
     fetch(API, { headers: { Authorization: `Bearer ${token}` } })
       .then(r => r.json())
       .then(data => { setRules(data); setLoading(false) })
-      .catch(() => toast.error('API error'))
+      .catch(() => toast.error('API error')) 
   }, [])
 
   /* ---- Handlers ---------------------------------------------------- */

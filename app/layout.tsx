@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   applicationName: "Mathis Boche",
   generator: "Next.js 14",
   title: {
-    default: "Mathis Boche — Échecs, Communication et Web",
+    default: "Mathis Boche",
     template: "%s — Mathis Boche",
   },
   description:
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: SITE_URL,
     siteName: "Mathis Boche",
-    title: "Mathis Boche — Échecs, Communication et Web",
+    title: "Mathis Boche",
     description:
       "Communication et web chez ChessMates International. Joueur d’échecs.",
     images: [
@@ -54,14 +54,14 @@ export const metadata: Metadata = {
         url: `${SITE_URL}/og-image.jpg`,
         width: 1200,
         height: 630,
-        alt: "Mathis Boche — Échecs & Communication",
+        alt: "Mathis Boche",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     creator: "@mathisboche",
-    title: "Mathis Boche — Échecs, Communication et Web",
+    title: "Mathis Boche",
     description:
       "Communication et web chez ChessMates International. Joueur d’échecs.",
     images: [`${SITE_URL}/og-image.jpg`],
