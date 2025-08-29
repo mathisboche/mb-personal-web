@@ -1,38 +1,83 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Archivo+Black&display=swap");
-
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-html {
-  font-family: "Inter", sans-serif;
-  scroll-behavior: smooth;
+/* -------- PALETTE LUXE DISCRET -------- */
+@layer base {
+  :root{
+    --ivory: #FAF7F1;  /* fond ivoire */
+    --ink: #141316;    /* texte principal (noir chaud) */
+    --stone:#D9D3C8;  /* filets / bordures */
+    --gold:#B9935A;   /* or doux (accents rares) */
+  }
+  .bg-ivory { background: var(--ivory); }
+  .text-ink { color: var(--ink); }
 }
 
-body {
-  @apply bg-gradient-to-br from-[#0b1e40] via-[#141327] to-black text-neutral-100 antialiased;
+/* -------- TYPO -------- */
+@layer base{
+  html, body { height: 100%; }
+  body{
+    font-family: var(--font-text), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Helvetica Neue";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1,h2,h3,.display{
+    font-family: var(--font-display), ui-serif, Georgia, "Times New Roman", serif;
+    letter-spacing: -0.01em;
+  }
+  a{ text-underline-offset: 3px; }
+  a:hover{ color: var(--gold); }
 }
 
-/* Wave Divider */
-.path-divider path {
-  fill: currentColor;
+/* -------- GRILLE & RYTHME -------- */
+.container { @apply mx-auto px-6; max-width: 66rem; } /* ~1056px */
+.section { @apply py-12 sm:py-16; }
+.rule { height: 1px; background: var(--stone); }
+
+/* -------- COMPOSANTS -------- */
+.kicker{
+  @apply uppercase text-[11px] tracking-[0.18em];
+  color: #6E6B64;
+}
+.hero-title{
+  font-weight: 600;
+  line-height: .95;
+  font-size: clamp(2.6rem, 6vw, 4.8rem);
+}
+.lead{
+  @apply text-lg;
+  color: #3E3B36;
+}
+.card{
+  background: #FFFFFF;
+  border: 1px solid var(--stone);
+  border-radius: 20px;
+  padding: 28px;
+}
+.frame{
+  border: 1px solid var(--stone);
+  border-radius: 18px;
+  background: #FFFFFF;
+  padding: 10px;
+}
+.btn{
+  @apply inline-flex items-center justify-center rounded-full px-5 py-2 text-sm transition;
+  border: 1px solid var(--ink);
+}
+.btn:hover{ border-color: var(--gold); color: var(--gold); }
+.btn-primary{
+  border-color: var(--gold);
+  background: var(--gold);
+  color: #fff;
+}
+.btn-primary:hover{ filter: brightness(1.05); }
+
+/* -------- LISTES FINES -------- */
+.list{
+  @apply leading-8 text-[15.5px];
+  color: #3F3C37;
 }
 
-/* Animations */
-@keyframes spin-slow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@keyframes spin-reverse {
-  from { transform: rotate(360deg); }
-  to { transform: rotate(0deg); }
-}
-
-/* Selection */
-::selection {
-  @apply bg-orange-500/40 text-neutral-900;
-}
-
-
+/* -------- UTILITAIRES -------- */
+.mono { font-variant-numeric: lining-nums; }
