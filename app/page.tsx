@@ -62,16 +62,6 @@ export default function Page() {
           <strong>Email</strong> :
           <a className="underline" href="mailto:mathis@mathisboche.com"> mathis@mathisboche.com</a>
           <br />
-          <strong>Instagram</strong> :
-          <a
-            className="underline ml-1"
-            href="https://www.instagram.com/mathis.boche/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            @mathis.boche
-          </a>
-          <br />
           <strong>LinkedIn</strong> :
           <a
             className="underline ml-1"
