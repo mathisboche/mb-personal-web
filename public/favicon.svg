@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <!-- Background: gold with subtle corner radius -->
-  <rect x="2" y="2" width="60" height="60" rx="12" fill="#B9935A"/>
-  <!-- Monogram: MB in ivory, centered -->
-  <text x="32" y="42" text-anchor="middle" font-size="30" font-weight="700"
-        font-family="Georgia, 'Times New Roman', Times, serif" fill="#FAF7F1">MB</text>
-  <!-- Optional inner border for crispness at small sizes -->
-  <rect x="2.75" y="2.75" width="58.5" height="58.5" rx="11.2" fill="none" stroke="#FAF7F1" stroke-opacity="0.16"/>
   <title>Mathis Boche</title>
-  <desc>Monogramme MB sur fond or, style sobre.</desc>
+  <desc>Icône minimaliste: losange arrondi doré, fond transparent.</desc>
+  <!-- Elegant rounded diamond in brand gold -->
+  <rect x="12" y="12" width="40" height="40" rx="12" fill="#B9935A" transform="rotate(45 32 32)"/>
 </svg>
-

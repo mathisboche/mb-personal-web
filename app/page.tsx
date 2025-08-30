@@ -62,7 +62,35 @@ export default function Page() {
           <strong>Email</strong> :
           <a className="underline" href="mailto:mathis@mathisboche.com"> mathis@mathisboche.com</a>
           <br />
-          <strong>Références visibles</strong> : Instagram @chessmates_intl
+          <strong>Instagram</strong> :
+          <a
+            className="underline ml-1"
+            href="https://www.instagram.com/mathis.boche/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            @mathis.boche
+          </a>
+          <br />
+          <strong>LinkedIn</strong> :
+          <a
+            className="underline ml-1"
+            href="http://linkedin.com/in/mathis-boche"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            linkedin.com/in/mathis-boche
+          </a>
+          <br />
+          <strong>Références visibles</strong> : Instagram
+          <a
+            className="underline ml-1"
+            href="https://www.instagram.com/chessmates_intl/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            @chessmates_intl
+          </a>
         </p>
       </section>
     </main>
