@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   metadataBase: new URL("https://mathisboche.com"),
   openGraph: {
-    title: "Mathis Boche — Communication & coordination",
+    title: "Mathis Boche",
     description:
       "Étudiant en PCSI (Lycée Chaptal, Paris). Communication & coordination — ChessMates International.",
     type: "website",
