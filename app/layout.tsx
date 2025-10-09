@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const display = Cormorant_Garamond({
   subsets: ["latin"],
@@ -46,8 +47,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr" className={`${display.variable} ${text.variable}`}>
-      <body className="bg-ivory text-ink antialiased">{children}</body>
+      <body className="bg-ivory text-ink antialiased">
+        {children}
+        <SpeedInsights />
+      </body>
     </html>
   );
 }
-
