@@ -1,6 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <title>MB · Signature M</title>
+  <title>MB</title>
+  <style>
+    text{
+      font: 700 38px system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Inter", sans-serif;
+      letter-spacing: 0.5px;
+    }
+  </style>
   <rect width="64" height="64" rx="12" fill="#FAF7F1"/>
-  <path d="M14 44 L26 22 L38 44 L50 22" fill="none" stroke="#141316" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="50" cy="44" r="3.5" fill="#B9935A"/>
+  <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="#141316">MB</text>
 </svg>
