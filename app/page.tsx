@@ -36,10 +36,9 @@ export default function Page() {
       <div className="my-10 rule" />
 
       <section>
-        <h2 className="display text-2xl sm:text-3xl font-semibold">Certifications</h2>
+        <h2 className="display text-2xl sm:text-3xl font-semibold">Certification</h2>
         <ul className="mt-4 list-disc pl-5 text-[15.5px] leading-7">
           <li>DAFFE 1 (FFE), 2024</li>
-          <li>Cambridge English B1, 2022</li>
         </ul>
       </section>
 
