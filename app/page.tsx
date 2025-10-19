@@ -30,6 +30,11 @@ export default function Page() {
             <br />
             Été 2025 : présence quotidienne du 15 juillet au 31 août, dans le cadre du Grand Jeu.
           </p>
+          <p>
+            <strong>Comité des Échecs des Hauts‑de‑Seine</strong> : communication et outils numériques depuis 2025.
+            <br />
+            Questionnaires clubs et synthèses, pages d’information WordPress, comptes sociaux et visuels.
+          </p>
         </div>
       </section>
 
@@ -69,6 +74,17 @@ export default function Page() {
             rel="noopener noreferrer"
           >
             @chessmates_intl
+          </a>
+          {" "}
+          et
+          {" "}
+          <a
+            className="underline"
+            href="https://www.instagram.com/echecs92/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            @echecs92
           </a>
         </p>
       </section>
