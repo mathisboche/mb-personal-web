@@ -1,17 +1,18 @@
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Inter } from "next/font/google";
+import { Space_Grotesk, Space_Mono } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
-const display = Cormorant_Garamond({
+const display = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-display",
   weight: ["400", "500", "600", "700"],
 });
 
-const text = Inter({
+const text = Space_Mono({
   subsets: ["latin"],
   variable: "--font-text",
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -47,7 +48,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr" className={`${display.variable} ${text.variable}`}>
-      <body className="bg-ivory text-ink antialiased">
+      <body className="antialiased">
         {children}
         <SpeedInsights />
       </body>

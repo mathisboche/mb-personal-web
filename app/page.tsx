@@ -1,93 +1,35 @@
 export default function Page() {
   return (
-    <main className="container section">
-      <header className="mb-10">
-        <h1 className="hero-title display">Mathis Boche</h1>
-        <p className="lead mt-4 max-w-2xl italic">
-          Étudiant en PCSI (Lycée Chaptal, Paris). Je m’occupe de communication pour des
-          événements et associations que je connais.
-        </p>
-        <p className="mt-4 text-[15px]">
-          <strong>Contact</strong> ·
-          <a className="underline" href="mailto:mathis@mathisboche.com"> mathis@mathisboche.com</a>
-        </p>
-      </header>
+    <main className="garage-sheet">
+      <h1 className="garage-headline">Mathis Boche</h1>
 
-      <div className="rule" />
+      <p className="garage-lead">
+        Étudiant en prépa scientifique au lycée Chaptal, Paris.
+        Parfois je m’occupe de communication pour des associations d’échecs.
+      </p>
 
-      <section className="mt-10">
-        <h2 className="display text-2xl sm:text-3xl font-semibold">En ce moment</h2>
-        <div className="mt-4 space-y-4 text-[15.5px] leading-7">
-          <p>
-            <strong>ChessMates International</strong> : com et site (depuis 2024)
-            <br />
-            Couverture Tallinn 2024 et York 2025 : photos, stories, récap, mises à jour site (Wix Studio).
-          </p>
-          <p>
-            <strong>Cité des sciences et de l’industrie (Paris)</strong> : ateliers échecs
-            <br />
-            Co‑animation mensuelle depuis janvier 2025 (public débutant, 2h).
-            <br />
-            Été 2025 : présence quotidienne du 15 juillet au 31 août, dans le cadre du Grand Jeu.
-          </p>
-          <p>
-            <strong>Comité des Échecs des Hauts‑de‑Seine</strong> : communication et outils numériques depuis 2025.
-            <br />
-            Questionnaires clubs et synthèses, pages d’information WordPress, comptes sociaux et visuels.
-          </p>
-        </div>
-      </section>
+      <hr className="garage-rule" />
 
-      <div className="my-10 rule" />
-
-      <section>
-        <h2 className="display text-2xl sm:text-3xl font-semibold">Certification</h2>
-        <ul className="mt-4 list-disc pl-5 text-[15.5px] leading-7">
-          <li>DAFFE 1 (FFE), 2024</li>
-        </ul>
-      </section>
-
-      <div className="my-10 rule" />
-
-      <section>
-        <h2 className="display text-2xl sm:text-3xl font-semibold">Repères</h2>
-        <p className="mt-4 text-[15.5px] leading-7">
-          18 ans, basé à Paris.
-          <br />
-          Membre du Cercle d’Échecs de Bois‑Colombes.
-        </p>
-      </section>
-
-      <div className="my-10 rule" />
-
-      <section>
-        <h2 className="display text-2xl sm:text-3xl font-semibold">Contact</h2>
-        <p className="mt-4 text-[15.5px] leading-7">
-          <strong>Email</strong> :
-          <a className="underline" href="mailto:mathis@mathisboche.com"> mathis@mathisboche.com</a>
-          <br />
-          <strong>Références visibles</strong> : Instagram
-          <a
-            className="underline ml-1"
-            href="https://www.instagram.com/chessmates_intl/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            @chessmates_intl
+      <ul className="garage-list">
+        <li className="garage-row">
+          <a className="garage-link" href="https://www.instagram.com/mathis.boche/" target="_blank" rel="noopener noreferrer">
+            instagram.com/mathis.boche
           </a>
-          {" "}
-          et
-          {" "}
-          <a
-            className="underline"
-            href="https://www.instagram.com/echecs92/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            @echecs92
+        </li>
+        <li className="garage-row">
+          <a className="garage-link" href="https://fr.linkedin.com/in/mathisboche" target="_blank" rel="noopener noreferrer">
+            linkedin.com/in/mathisboche
           </a>
-        </p>
-      </section>
+        </li>
+        <li className="garage-row">
+          <a className="garage-link" href="https://github.com/mathisboche" target="_blank" rel="noopener noreferrer">
+            github.com/mathisboche
+          </a>
+        </li>
+        <li className="garage-row">
+          <a className="garage-link" href="mailto:mathis@mathisboche.com">mathis@mathisboche.com</a>
+        </li>
+      </ul>
     </main>
   );
 }
