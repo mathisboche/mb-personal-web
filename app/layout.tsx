@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Mathis Boche",
     description:
-      "Étudiant en classe préparatoire scientifique à Paris. Responsable communication pour ChessMates International. Membre du comité directeur du comité d’échecs des Hauts-de-Seine. Ateliers à la Cité des sciences.",
+      "Étudiant en classe préparatoire scientifique à Paris. Responsable communication pour ChessMates International.",
     type: "website",
     url: "https://mathisboche.com",
     siteName: "Mathis Boche",
