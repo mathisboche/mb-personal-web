@@ -4,30 +4,40 @@ export default function Page() {
       <h1 className="garage-headline">Mathis Boche</h1>
 
       <p className="garage-lead">
-        Étudiant en prépa scientifique au lycée Chaptal, Paris.
-        Parfois je m’occupe de communication pour des associations d’échecs.
+        Étudiant en classe préparatoire scientifique à Paris<br />
+        Formation en mathématiques et en physique-chimie au lycée Chaptal.
       </p>
 
+      <section className="mt-8">
+        <h2>Ce que je fais, en ce moment</h2>
+        <ul>
+          <li>
+            Responsable communication pour ChessMates International — <a className="garage-link" href="https://www.chessmatesinternational.com" target="_blank" rel="noopener noreferrer">chessmatesinternational.com</a>
+          </li>
+          <li>
+            Membre du Comité départemental du jeu d’échecs des Hauts-de-Seine — <a className="garage-link" href="https://www.echecs92.com" target="_blank" rel="noopener noreferrer">echecs92.com</a>
+          </li>
+          <li>
+            Cité des sciences et de l’industrie (Paris) : ateliers d’initiation aux échecs.
+          </li>
+        </ul>
+      </section>
+
       <hr className="garage-rule" />
+      <h2>Contact</h2>
 
       <ul className="garage-list">
         <li className="garage-row">
-          <a className="garage-link" href="https://www.instagram.com/mathis.boche/" target="_blank" rel="noopener noreferrer">
-            instagram.com/mathis.boche
-          </a>
+          Instagram : <a className="garage-link" href="https://www.instagram.com/mathis.boche/" target="_blank" rel="noopener noreferrer">instagram.com/mathis.boche</a>
         </li>
         <li className="garage-row">
-          <a className="garage-link" href="https://fr.linkedin.com/in/mathisboche" target="_blank" rel="noopener noreferrer">
-            linkedin.com/in/mathisboche
-          </a>
+          LinkedIn : <a className="garage-link" href="https://fr.linkedin.com/in/mathisboche" target="_blank" rel="noopener noreferrer">linkedin.com/in/mathisboche</a>
         </li>
         <li className="garage-row">
-          <a className="garage-link" href="https://github.com/mathisboche" target="_blank" rel="noopener noreferrer">
-            github.com/mathisboche
-          </a>
+          Email : <a className="garage-link" href="mailto:mathis@mathisboche.com">mathis@mathisboche.com</a>
         </li>
         <li className="garage-row">
-          <a className="garage-link" href="mailto:mathis@mathisboche.com">mathis@mathisboche.com</a>
+          Téléphone : <a className="garage-link" href="tel:+33601868589">+33 6 01 86 85 89</a>
         </li>
       </ul>
     </main>

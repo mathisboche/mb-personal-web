@@ -1,19 +1,6 @@
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
-import { Space_Grotesk, Space_Mono } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-
-const display = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-display",
-  weight: ["400", "500", "600", "700"],
-});
-
-const text = Space_Mono({
-  subsets: ["latin"],
-  variable: "--font-text",
-  weight: ["400", "700"],
-});
 
 export const metadata: Metadata = {
   title: {
@@ -42,13 +29,12 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#FAF7F1",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" className={`${display.variable} ${text.variable}`}>
-      <body className="antialiased">
+    <html lang="fr">
+      <body>
         {children}
         <SpeedInsights />
       </body>
