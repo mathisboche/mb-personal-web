@@ -5,7 +5,6 @@ export default function Page() {
 
       <p className="garage-lead">
         Étudiant en classe préparatoire scientifique à Paris<br />
-        Formation en mathématiques et en physique-chimie au lycée Chaptal.
       </p>
 
       <section className="mt-8">
