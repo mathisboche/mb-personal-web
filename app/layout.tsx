@@ -22,11 +22,12 @@ export const metadata: Metadata = {
     url: "https://mathisboche.com",
     siteName: "Mathis Boche",
     locale: "fr_FR",
+    images: [
+      {
+        url: "/mathisboche.jpg",
+      },
+    ],
   },
-  icons: [
-    { rel: "icon", url: "/favicon.svg", type: "image/svg+xml" },
-    { rel: "apple-touch-icon", url: "/apple-touch-icon.png" },
-  ],
 };
 
 export const viewport: Viewport = {
