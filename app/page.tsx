@@ -8,7 +8,7 @@ export default function Page() {
       </p>
 
       <section className="mt-8">
-        <h2>Ce que je fais, en ce moment</h2>
+        <h2>Activités</h2>
         <ul>
           <li>
             Responsable communication pour ChessMates International — <a className="garage-link" href="https://www.chessmatesinternational.com" target="_blank" rel="noopener noreferrer">chessmatesinternational.com</a>
