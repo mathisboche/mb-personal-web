@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     images: [
       {
-        url: "/og.jpg",
+        url: "/og.png",
       },
     ],
   },
