@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Mathis Boche",
     description:
-      "Étudiant en classe préparatoire scientifique à Paris. Responsable communication pour ChessMates International.",
+      "Étudiant en classe préparatoire scientifique à Paris.",
     type: "website",
     url: "https://mathisboche.com",
     siteName: "Mathis Boche",
