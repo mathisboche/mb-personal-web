@@ -27,9 +27,6 @@ export default function Page() {
 
       <ul className="garage-list">
         <li className="garage-row">
-          Instagram : <a className="garage-link" href="https://www.instagram.com/mathis.boche/" target="_blank" rel="noopener noreferrer">instagram.com/mathis.boche</a>
-        </li>
-        <li className="garage-row">
           LinkedIn : <a className="garage-link" href="https://linkedin.com/in/mathisboche" target="_blank" rel="noopener noreferrer">linkedin.com/in/mathisboche</a>
         </li>
         <li className="garage-row">
