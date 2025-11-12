@@ -1,3 +1,5 @@
+import PhoneCaptcha from "../components/PhoneCaptcha";
+
 export default function Page() {
   return (
     <main className="garage-sheet">
@@ -33,7 +35,7 @@ export default function Page() {
           Email : <a className="garage-link" href="mailto:mathis@mathisboche.com">mathis@mathisboche.com</a>
         </li>
         <li className="garage-row">
-          Téléphone : <a className="garage-link" href="tel:+33601868589">+33 6 01 86 85 89</a>
+          Téléphone : <PhoneCaptcha />
         </li>
       </ul>
     </main>
