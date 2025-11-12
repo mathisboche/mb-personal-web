@@ -14,7 +14,7 @@ export default function Page() {
             Responsable communication pour ChessMates International — <a className="garage-link" href="https://www.chessmatesinternational.com" target="_blank" rel="noopener noreferrer">chessmatesinternational.com</a>
           </li>
           <li>
-            Membre du Comité départemental du jeu d’échecs des Hauts-de-Seine — <a className="garage-link" href="https://www.echecs92.com" target="_blank" rel="noopener noreferrer">echecs92.com/comite</a>
+            Membre du Comité départemental du jeu d’échecs des Hauts-de-Seine — <a className="garage-link" href="https://www.echecs92.com" target="_blank" rel="noopener noreferrer">echecs92.com</a>
           </li>
           <li>
             Cité des sciences et de l’industrie (Paris) : ateliers d’initiation aux échecs.
