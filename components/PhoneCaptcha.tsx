@@ -13,6 +13,8 @@ const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? "";
 export default function PhoneCaptcha() {
   const [isVerified, setIsVerified] = useState(false);
   const [showCaptcha, setShowCaptcha] = useState(false);
+  const [captchaReady, setCaptchaReady] = useState(false);
+  const [captchaError, setCaptchaError] = useState("");
 
   const handleCaptchaChange = useCallback((token: string | null) => {
     setIsVerified(Boolean(token));
@@ -36,17 +38,41 @@ export default function PhoneCaptcha() {
 
   if (!showCaptcha) {
     return (
-      <button type="button" onClick={() => setShowCaptcha(true)}>
+      <button
+        type="button"
+        onClick={() => {
+          setShowCaptcha(true);
+          setCaptchaReady(false);
+          setCaptchaError("");
+        }}
+      >
         Afficher le numéro de téléphone
       </button>
     );
   }
 
   return (
-    <ReCAPTCHA
-      sitekey={SITE_KEY}
-      onChange={handleCaptchaChange}
-      onExpired={() => setIsVerified(false)}
-    />
+    <div>
+      {!captchaReady && !captchaError && (
+        <span>Chargement du captcha…</span>
+      )}
+      {captchaError && <span>{captchaError}</span>}
+      {!captchaError && (
+        <ReCAPTCHA
+          sitekey={SITE_KEY}
+          onChange={handleCaptchaChange}
+          onExpired={() => setIsVerified(false)}
+          asyncScriptOnLoad={() => {
+            setCaptchaReady(true);
+            setCaptchaError("");
+          }}
+          onErrored={() =>
+            setCaptchaError(
+              "Impossible de charger reCAPTCHA. Cliquez à nouveau pour réessayer."
+            )
+          }
+        />
+      )}
+    </div>
   );
 }
