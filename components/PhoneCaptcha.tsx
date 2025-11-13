@@ -12,6 +12,7 @@ const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? "";
 
 export default function PhoneCaptcha() {
   const [isVerified, setIsVerified] = useState(false);
+  const [showCaptcha, setShowCaptcha] = useState(false);
 
   const handleCaptchaChange = useCallback((token: string | null) => {
     setIsVerified(Boolean(token));
@@ -30,6 +31,14 @@ export default function PhoneCaptcha() {
       <a className="garage-link" href={`tel:${PHONE_NUMBER.tel}`}>
         {PHONE_NUMBER.display}
       </a>
+    );
+  }
+
+  if (!showCaptcha) {
+    return (
+      <button type="button" onClick={() => setShowCaptcha(true)}>
+        Afficher le numéro de téléphone
+      </button>
     );
   }
 
