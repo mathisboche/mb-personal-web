@@ -1,7 +1,7 @@
 "use client";
 
 import ReCAPTCHA from "react-google-recaptcha";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const PHONE_NUMBER = {
   tel: "+33601868589",
@@ -9,16 +9,28 @@ const PHONE_NUMBER = {
 };
 
 const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? "";
+const PHONE_DISPLAY_DELAY = 250;
 
 export default function PhoneCaptcha() {
   const [isVerified, setIsVerified] = useState(false);
   const [showCaptcha, setShowCaptcha] = useState(false);
   const [captchaReady, setCaptchaReady] = useState(false);
   const [captchaError, setCaptchaError] = useState("");
+  const [isPhoneVisible, setIsPhoneVisible] = useState(false);
 
   const handleCaptchaChange = useCallback((token: string | null) => {
     setIsVerified(Boolean(token));
   }, []);
+
+  useEffect(() => {
+    if (!isVerified) {
+      setIsPhoneVisible(false);
+      return;
+    }
+
+    const timer = window.setTimeout(() => setIsPhoneVisible(true), PHONE_DISPLAY_DELAY);
+    return () => window.clearTimeout(timer);
+  }, [isVerified]);
 
   if (!SITE_KEY) {
     return (
@@ -28,7 +40,7 @@ export default function PhoneCaptcha() {
     );
   }
 
-  if (isVerified) {
+  if (isPhoneVisible) {
     return (
       <a className="garage-link" href={`tel:${PHONE_NUMBER.tel}`}>
         {PHONE_NUMBER.display}
@@ -57,7 +69,7 @@ export default function PhoneCaptcha() {
         <span>Chargement du captcha…</span>
       )}
       {captchaError && <span>{captchaError}</span>}
-      {!captchaError && (
+      {!captchaError && !isVerified && (
         <ReCAPTCHA
           sitekey={SITE_KEY}
           onChange={handleCaptchaChange}
@@ -72,6 +84,9 @@ export default function PhoneCaptcha() {
             )
           }
         />
+      )}
+      {isVerified && !isPhoneVisible && (
+        <span>Validation réussie, affichage du numéro…</span>
       )}
     </div>
   );
