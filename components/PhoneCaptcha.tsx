@@ -10,6 +10,7 @@ const PHONE_NUMBER = {
 
 const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? "";
 const PHONE_DISPLAY_DELAY = 1000;
+const CAPTCHA_MIN_LOADING_DURATION = 1000;
 
 export default function PhoneCaptcha() {
   const [isVerified, setIsVerified] = useState(false);
@@ -17,6 +18,7 @@ export default function PhoneCaptcha() {
   const [captchaReady, setCaptchaReady] = useState(false);
   const [captchaError, setCaptchaError] = useState("");
   const [isPhoneVisible, setIsPhoneVisible] = useState(false);
+  const [hasMinCaptchaLoadTimeElapsed, setHasMinCaptchaLoadTimeElapsed] = useState(false);
 
   const handleCaptchaChange = useCallback((token: string | null) => {
     setIsVerified(Boolean(token));
@@ -31,6 +33,21 @@ export default function PhoneCaptcha() {
     const timer = window.setTimeout(() => setIsPhoneVisible(true), PHONE_DISPLAY_DELAY);
     return () => window.clearTimeout(timer);
   }, [isVerified]);
+
+  useEffect(() => {
+    if (!showCaptcha) {
+      setHasMinCaptchaLoadTimeElapsed(false);
+      return;
+    }
+
+    setHasMinCaptchaLoadTimeElapsed(false);
+    const timer = window.setTimeout(
+      () => setHasMinCaptchaLoadTimeElapsed(true),
+      CAPTCHA_MIN_LOADING_DURATION
+    );
+
+    return () => window.clearTimeout(timer);
+  }, [showCaptcha]);
 
   if (!SITE_KEY) {
     return (
@@ -65,7 +82,7 @@ export default function PhoneCaptcha() {
 
   return (
     <div>
-      {!captchaReady && !captchaError && (
+      {!captchaError && (!captchaReady || !hasMinCaptchaLoadTimeElapsed) && (
         <span>Chargement du captcha…</span>
       )}
       {captchaError && <span>{captchaError}</span>}
