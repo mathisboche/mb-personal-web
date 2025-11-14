@@ -1,7 +1,7 @@
 "use client";
 
 import ReCAPTCHA from "react-google-recaptcha";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 
 const PHONE_NUMBER = {
   tel: "+33601868589",
@@ -9,45 +9,15 @@ const PHONE_NUMBER = {
 };
 
 const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? "";
-const PHONE_DISPLAY_DELAY = 1000;
-const CAPTCHA_MIN_LOADING_DURATION = 1000;
 
 export default function PhoneCaptcha() {
   const [isVerified, setIsVerified] = useState(false);
   const [showCaptcha, setShowCaptcha] = useState(false);
-  const [captchaReady, setCaptchaReady] = useState(false);
   const [captchaError, setCaptchaError] = useState("");
-  const [isPhoneVisible, setIsPhoneVisible] = useState(false);
-  const [hasMinCaptchaLoadTimeElapsed, setHasMinCaptchaLoadTimeElapsed] = useState(false);
 
   const handleCaptchaChange = useCallback((token: string | null) => {
     setIsVerified(Boolean(token));
   }, []);
-
-  useEffect(() => {
-    if (!isVerified) {
-      setIsPhoneVisible(false);
-      return;
-    }
-
-    const timer = window.setTimeout(() => setIsPhoneVisible(true), PHONE_DISPLAY_DELAY);
-    return () => window.clearTimeout(timer);
-  }, [isVerified]);
-
-  useEffect(() => {
-    if (!showCaptcha) {
-      setHasMinCaptchaLoadTimeElapsed(false);
-      return;
-    }
-
-    setHasMinCaptchaLoadTimeElapsed(false);
-    const timer = window.setTimeout(
-      () => setHasMinCaptchaLoadTimeElapsed(true),
-      CAPTCHA_MIN_LOADING_DURATION
-    );
-
-    return () => window.clearTimeout(timer);
-  }, [showCaptcha]);
 
   if (!SITE_KEY) {
     return (
@@ -57,7 +27,7 @@ export default function PhoneCaptcha() {
     );
   }
 
-  if (isPhoneVisible) {
+  if (isVerified) {
     return (
       <a className="garage-link" href={`tel:${PHONE_NUMBER.tel}`}>
         {PHONE_NUMBER.display}
@@ -71,8 +41,8 @@ export default function PhoneCaptcha() {
         type="button"
         onClick={() => {
           setShowCaptcha(true);
-          setCaptchaReady(false);
           setCaptchaError("");
+          setIsVerified(false);
         }}
       >
         Afficher le numéro de téléphone
@@ -82,35 +52,18 @@ export default function PhoneCaptcha() {
 
   return (
     <div>
-      {!captchaError && (!captchaReady || !hasMinCaptchaLoadTimeElapsed) && (
-        <span>Chargement du captcha…</span>
-      )}
       {captchaError && <span>{captchaError}</span>}
       {!captchaError && !isVerified && (
-        <div
-          style={{
-            display:
-              !hasMinCaptchaLoadTimeElapsed || !captchaReady ? "none" : "block",
-          }}
-        >
-          <ReCAPTCHA
-            sitekey={SITE_KEY}
-            onChange={handleCaptchaChange}
-            onExpired={() => setIsVerified(false)}
-            asyncScriptOnLoad={() => {
-              setCaptchaReady(true);
-              setCaptchaError("");
-            }}
-            onErrored={() =>
-              setCaptchaError(
-                "Impossible de charger reCAPTCHA. Cliquez à nouveau pour réessayer."
-              )
-            }
-          />
-        </div>
-      )}
-      {isVerified && !isPhoneVisible && (
-        <span>Validation réussie, affichage du numéro…</span>
+        <ReCAPTCHA
+          sitekey={SITE_KEY}
+          onChange={handleCaptchaChange}
+          onExpired={() => setIsVerified(false)}
+          onErrored={() =>
+            setCaptchaError(
+              "Impossible de charger reCAPTCHA. Cliquez à nouveau pour réessayer."
+            )
+          }
+        />
       )}
     </div>
   );
