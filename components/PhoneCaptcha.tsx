@@ -87,20 +87,27 @@ export default function PhoneCaptcha() {
       )}
       {captchaError && <span>{captchaError}</span>}
       {!captchaError && !isVerified && (
-        <ReCAPTCHA
-          sitekey={SITE_KEY}
-          onChange={handleCaptchaChange}
-          onExpired={() => setIsVerified(false)}
-          asyncScriptOnLoad={() => {
-            setCaptchaReady(true);
-            setCaptchaError("");
+        <div
+          style={{
+            display:
+              !hasMinCaptchaLoadTimeElapsed || !captchaReady ? "none" : "block",
           }}
-          onErrored={() =>
-            setCaptchaError(
-              "Impossible de charger reCAPTCHA. Cliquez à nouveau pour réessayer."
-            )
-          }
-        />
+        >
+          <ReCAPTCHA
+            sitekey={SITE_KEY}
+            onChange={handleCaptchaChange}
+            onExpired={() => setIsVerified(false)}
+            asyncScriptOnLoad={() => {
+              setCaptchaReady(true);
+              setCaptchaError("");
+            }}
+            onErrored={() =>
+              setCaptchaError(
+                "Impossible de charger reCAPTCHA. Cliquez à nouveau pour réessayer."
+              )
+            }
+          />
+        </div>
       )}
       {isVerified && !isPhoneVisible && (
         <span>Validation réussie, affichage du numéro…</span>
