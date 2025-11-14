@@ -9,7 +9,7 @@ const PHONE_NUMBER = {
 };
 
 const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? "";
-const PHONE_DISPLAY_DELAY = 250;
+const PHONE_DISPLAY_DELAY = 750;
 
 export default function PhoneCaptcha() {
   const [isVerified, setIsVerified] = useState(false);
