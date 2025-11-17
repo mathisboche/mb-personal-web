@@ -148,11 +148,11 @@ button:focus-visible {
 
 @media (max-width: 640px) {
   body {
-    padding: 1.5rem;
+    padding: 1rem 1.15rem;
   }
 
   .garage-sheet {
-    padding: 2rem;
+    padding: 1.25rem;
   }
 
   .garage-row,
