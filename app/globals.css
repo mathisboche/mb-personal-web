@@ -22,7 +22,7 @@ body {
 }
 
 .garage-sheet {
-  width: min(760px, 100%);
+  width: min(1500px, 100%);
   margin: 0 auto;
   padding: clamp(1.5rem, 4vw, 2.75rem);
   word-break: normal;
