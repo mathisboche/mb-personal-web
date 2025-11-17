@@ -1,10 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Space+Grotesk:wght@400;500;600&display=swap");
 
 :root {
   font-family: "Space Grotesk", "Inter", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   color: #050505;
-  background-color: #fdfdfc;
+  background-color: #fff;
   text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 *, *::before, *::after {
@@ -14,7 +15,7 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background-color: #fdfdfc;
+  background-color: #fff;
   color: #050505;
   display: flex;
   justify-content: center;
@@ -26,13 +27,15 @@ body {
 .garage-sheet {
   width: min(760px, 100%);
   background-color: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.85);
+  border: 1px solid #111;
   padding: clamp(2.75rem, 5vw, 4.5rem);
-  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.09);
   position: relative;
   isolation: isolate;
   overflow: hidden;
   animation: elevate 1.2s cubic-bezier(0.19, 1, 0.22, 1) both;
+  word-break: normal;
+  hyphens: manual;
 }
 
 .garage-sheet::after {
@@ -50,7 +53,7 @@ h1, h2, p {
 }
 
 .garage-headline {
-  font-family: "Playfair Display", "Times New Roman", serif;
+  font-family: "Newsreader", "Georgia", serif;
   font-size: clamp(2.75rem, 6vw, 4.75rem);
   line-height: 1.1;
   letter-spacing: 0.03em;
@@ -63,14 +66,22 @@ h1, h2, p {
   max-width: 32ch;
 }
 
+.garage-line {
+  --line-delay: calc(var(--line-index, 0) * 0.38s);
+  opacity: 0;
+  animation: lineReveal 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation-delay: calc(var(--line-delay) + 0.25s);
+  will-change: opacity, transform;
+}
+
 .mt-8 {
   margin-top: 2.8rem;
 }
 
 .garage-subhead {
-  font-family: "Playfair Display", "Times New Roman", serif;
+  font-family: "Newsreader", "Georgia", serif;
   font-size: 1.4rem;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.02em;
 }
 
 section ul,
@@ -102,7 +113,7 @@ section li {
 .garage-rule {
   margin: 3rem 0 2rem;
   border: none;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.14);
 }
 
 .garage-link {
@@ -114,14 +125,14 @@ section li {
 
 .garage-link:hover,
 .garage-link:focus-visible {
-  border-color: rgba(0, 0, 0, 0.65);
+  border-color: rgba(0, 0, 0, 0.75);
 }
 
 button {
-  border: 1px solid rgba(0, 0, 0, 0.9);
+  border: 1px solid #050505;
   background: transparent;
   color: inherit;
-  padding: 0.35rem 0.95rem;
+  padding: 0.4rem 1rem;
   font-size: 0.95rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -136,21 +147,36 @@ button:focus-visible {
 }
 
 .garage-cascade {
-  display: inline-flex;
-  flex-wrap: wrap;
-  gap: 0.02em;
+  display: inline;
+}
+
+.garage-cascade-word {
+  display: inline-block;
+  white-space: nowrap;
 }
 
 .garage-cascade-char {
+  display: inline-block;
   opacity: 0;
-  transform: translateY(0.8em) rotate(1deg);
-  animation: letterReveal 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  transform: translateY(0.45em);
+  animation: letterReveal 0.65s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
 @keyframes letterReveal {
   to {
     opacity: 1;
     transform: translateY(0) rotate(0deg);
+  }
+}
+
+@keyframes lineReveal {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -203,7 +229,10 @@ button:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   body,
   .garage-sheet,
-  .garage-cascade-char {
+  .garage-cascade-char,
+  .garage-line {
     animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

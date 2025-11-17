@@ -1,3 +1,5 @@
+import { Fragment } from "react";
+
 type TextCascadeProps = {
   text: string;
   className?: string;
@@ -11,23 +13,51 @@ function getDelay(index: number, length: number) {
 }
 
 export default function TextCascade({ text, className }: TextCascadeProps) {
-  const characters = Array.from(text);
   const composedClassName = ["garage-cascade", className]
     .filter(Boolean)
     .join(" ");
 
+  const tokens = text.split(/(\s+)/).filter(Boolean);
+  const animatedCharacterCount = Array.from(tokens.filter((token) => !/^\s+$/.test(token)).join(""))
+    .length;
+  let absoluteIndex = 0;
+
   return (
     <span className={composedClassName} aria-label={text}>
-      {characters.map((character, index) => (
-        <span
-          key={`char-${character}-${index}`}
-          aria-hidden="true"
-          className="garage-cascade-char"
-          style={{ animationDelay: `${getDelay(index, characters.length)}s` }}
-        >
-          {character === " " ? "\u00A0" : character}
-        </span>
-      ))}
+      {tokens.map((token, tokenIndex) => {
+        if (/^\s+$/.test(token)) {
+          return (
+            <Fragment key={`space-${tokenIndex}`}>
+              {token}
+            </Fragment>
+          );
+        }
+
+        const characters = Array.from(token);
+
+        return (
+          <span key={`word-${tokenIndex}`} className="garage-cascade-word">
+            {characters.map((character, characterIndex) => {
+              const currentIndex = absoluteIndex++;
+              return (
+                <span
+                  key={`char-${tokenIndex}-${characterIndex}`}
+                  aria-hidden="true"
+                  className="garage-cascade-char"
+                  style={{
+                    animationDelay: `calc(var(--line-delay, 0s) + ${getDelay(
+                      currentIndex,
+                      animatedCharacterCount
+                    )}s)`,
+                  }}
+                >
+                  {character}
+                </span>
+              );
+            })}
+          </span>
+        );
+      })}
     </span>
   );
 }
