@@ -11,13 +11,13 @@ export const metadata: Metadata = {
     template: "%s — Mathis Boche",
   },
   description:
-    "Étudiant en classe préparatoire scientifique à Paris. Responsable communication pour ChessMates International. Membre du comité directeur du comité d’échecs des Hauts-de-Seine. Ateliers à la Cité des sciences.",
+    "Contribution au développement du jeu d’échecs. Responsable communication pour ChessMates International. Membre du comité directeur du comité d’échecs des Hauts-de-Seine. Ateliers d’initiation aux échecs à la Cité des sciences et de l’industrie.",
   robots: { index: true, follow: true },
   metadataBase: new URL("https://mathisboche.com"),
   openGraph: {
     title: "Mathis Boche",
     description:
-      "Étudiant en classe préparatoire scientifique à Paris.",
+      "Contribution au développement du jeu d’échecs.",
     type: "website",
     url: "https://mathisboche.com",
     siteName: "Mathis Boche",
