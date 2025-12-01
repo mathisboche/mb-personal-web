@@ -14,6 +14,15 @@ export const metadata: Metadata = {
     "Contribution au développement du jeu d’échecs. Responsable communication pour ChessMates International. Membre du comité directeur du comité d’échecs des Hauts-de-Seine. Ateliers d’initiation aux échecs à la Cité des sciences et de l’industrie.",
   robots: { index: true, follow: true },
   metadataBase: new URL("https://mathisboche.com"),
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.png", type: "image/png", sizes: "512x512" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/favicon.png",
+  },
   openGraph: {
     title: "Mathis Boche",
     description:
