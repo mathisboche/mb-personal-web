@@ -21,10 +21,6 @@ export default function Page() {
           <h1 className="garage-headline garage-line" style={nextLineStyle()}>
             <TextCascade text="Mathis Boche" />
           </h1>
-
-          <p className="garage-lead garage-line" style={nextLineStyle()}>
-            <TextCascade text="Contribution au développement du jeu d’échecs." />
-          </p>
         </header>
 
         <section className="garage-section">
