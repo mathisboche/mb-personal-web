@@ -3,6 +3,8 @@
 import { useEffect } from "react";
 
 const MOBILE_QUERY = "(max-width: 640px)";
+const PARALLAX_FACTOR = 0.9;
+const SMOOTHING = 0.3;
 
 const clamp = (value: number, min: number, max: number) =>
   Math.min(max, Math.max(min, value));
@@ -24,6 +26,10 @@ export default function PortraitScrollBehavior() {
     let fadeDistance = 0;
     let rafId: number | null = null;
     let isActive = false;
+    let currentOpacity = 1;
+    let currentOffset = 0;
+    let targetOpacity = 1;
+    let targetOffset = 0;
 
     const updateMetrics = () => {
       const nextHeight = portrait.getBoundingClientRect().height;
@@ -34,32 +40,62 @@ export default function PortraitScrollBehavior() {
       }
     };
 
-    const updateOpacity = () => {
+    const applyStyles = () => {
+      portrait.style.setProperty("--portrait-opacity", `${currentOpacity.toFixed(3)}`);
+      portrait.style.setProperty("--portrait-offset", `${currentOffset.toFixed(2)}px`);
+    };
+
+    const updateTargets = () => {
       if (!fadeDistance) {
         updateMetrics();
         if (!fadeDistance) {
           return;
         }
       }
-      const progress = clamp(window.scrollY / fadeDistance, 0, 1);
-      const offset = -window.scrollY * 0.6;
-      portrait.style.setProperty("--portrait-opacity", `${(1 - progress).toFixed(3)}`);
-      portrait.style.setProperty("--portrait-offset", `${offset.toFixed(1)}px`);
+      const scrollY = Math.max(0, window.scrollY);
+      const progress = clamp(scrollY / fadeDistance, 0, 1);
+      targetOpacity = 1 - progress;
+      targetOffset = -scrollY * PARALLAX_FACTOR;
+    };
+
+    const tick = () => {
+      rafId = null;
+      updateTargets();
+      const opacityDelta = targetOpacity - currentOpacity;
+      const offsetDelta = targetOffset - currentOffset;
+      currentOpacity += opacityDelta * SMOOTHING;
+      currentOffset += offsetDelta * SMOOTHING;
+
+      if (Math.abs(opacityDelta) < 0.001 && Math.abs(offsetDelta) < 0.1) {
+        currentOpacity = targetOpacity;
+        currentOffset = targetOffset;
+      }
+
+      applyStyles();
+
+      if (
+        Math.abs(targetOpacity - currentOpacity) >= 0.001 ||
+        Math.abs(targetOffset - currentOffset) >= 0.1
+      ) {
+        rafId = window.requestAnimationFrame(tick);
+      }
+    };
+
+    const requestTick = () => {
+      if (rafId === null) {
+        rafId = window.requestAnimationFrame(tick);
+      }
     };
 
     const handleScroll = () => {
-      if (rafId !== null) {
-        return;
-      }
-      rafId = window.requestAnimationFrame(() => {
-        rafId = null;
-        updateOpacity();
-      });
+      updateTargets();
+      requestTick();
     };
 
     const handleResize = () => {
       updateMetrics();
-      updateOpacity();
+      updateTargets();
+      requestTick();
     };
 
     const activateMobile = () => {
@@ -68,7 +104,10 @@ export default function PortraitScrollBehavior() {
       }
       isActive = true;
       updateMetrics();
-      updateOpacity();
+      updateTargets();
+      currentOpacity = targetOpacity;
+      currentOffset = targetOffset;
+      applyStyles();
       window.addEventListener("scroll", handleScroll, { passive: true });
       window.addEventListener("resize", handleResize);
     };
@@ -80,6 +119,14 @@ export default function PortraitScrollBehavior() {
       isActive = false;
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleResize);
+      if (rafId !== null) {
+        window.cancelAnimationFrame(rafId);
+        rafId = null;
+      }
+      currentOpacity = 1;
+      currentOffset = 0;
+      targetOpacity = 1;
+      targetOffset = 0;
       portrait.style.setProperty("--portrait-opacity", "1");
       portrait.style.setProperty("--portrait-offset", "0px");
       shell.style.removeProperty("--portrait-height");
