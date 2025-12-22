@@ -80,19 +80,6 @@ export default function Page() {
               </ul>
             </section>
 
-            <section className="garage-section">
-              <h2 className="garage-subhead garage-line" style={nextLineStyle()}>
-                <TextCascade text="Événement" />
-              </h2>
-              <ul className="garage-list">
-                <li className="garage-item garage-line" style={nextLineStyle()}>
-                  <span className="garage-item-title">
-                    <TextCascade text="Colloque « Le sport universitaire : l’urgence d’agir » - Sénat." />
-                  </span>
-                </li>
-              </ul>
-            </section>
-
             <section className="garage-section garage-section--contact">
               <h2 className="garage-subhead garage-line" style={nextLineStyle()}>
                 <TextCascade text="Contact" />
