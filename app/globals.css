@@ -156,15 +156,14 @@ h1, h2, p {
   gap: 0;
 }
 
-.garage-list--activities .garage-item:last-child {
-  border-bottom: none;
-}
-
 .garage-item {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
   padding: 1rem 0;
+}
+
+.garage-item:not(:last-child) {
   border-bottom: 1px solid var(--line);
 }
 
@@ -188,8 +187,8 @@ h1, h2, p {
 }
 
 .garage-list--contact {
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  border-top: none;
+  border-bottom: none;
 }
 
 .garage-row + .garage-row {
