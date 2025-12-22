@@ -3,6 +3,8 @@ import type { Metadata, Viewport } from "next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Script from "next/script";
 
+import ThemeColorSync from "../components/ThemeColorSync";
+
 const GA_MEASUREMENT_ID = "G-ZRSBZW56BL";
 
 export const metadata: Metadata = {
@@ -53,6 +55,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="fr">
       <body>
+        <ThemeColorSync />
         <Script
           strategy="afterInteractive"
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
