@@ -33,7 +33,8 @@ export default function PortraitScrollBehavior() {
     };
 
     const updateOpacity = () => {
-      const fadeDistance = Math.max(140, portraitHeight || portrait.getBoundingClientRect().height);
+      const baseHeight = portraitHeight || portrait.getBoundingClientRect().height;
+      const fadeDistance = Math.max(100, baseHeight * 0.55);
       const progress = clamp(window.scrollY / fadeDistance, 0, 1);
       shell.style.setProperty("--portrait-opacity", `${(1 - progress).toFixed(3)}`);
     };
