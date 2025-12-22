@@ -87,7 +87,7 @@ export default function Page() {
               <ul className="garage-list">
                 <li className="garage-item garage-line" style={nextLineStyle()}>
                   <span className="garage-item-title">
-                    <TextCascade text="Colloque « Le sport universitaire : l’urgence d’agir » - Sénat (Palais du Luxembourg)." />
+                    <TextCascade text="Colloque « Le sport universitaire : l’urgence d’agir » - Sénat." />
                   </span>
                 </li>
               </ul>
