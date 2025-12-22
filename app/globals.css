@@ -285,7 +285,8 @@ button:focus-visible {
 
   .garage-portrait-frame {
     width: min(70vw, 280px);
-    transform: translateY(var(--portrait-offset, 0px));
+    transform: translate3d(0, var(--portrait-offset, 0px), 0);
+    will-change: transform, opacity;
   }
 
   .garage-headline {

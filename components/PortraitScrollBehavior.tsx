@@ -21,6 +21,7 @@ export default function PortraitScrollBehavior() {
     }
 
     let portraitHeight = 0;
+    let fadeDistance = 0;
     let rafId: number | null = null;
     let isActive = false;
 
@@ -28,17 +29,22 @@ export default function PortraitScrollBehavior() {
       const nextHeight = portrait.getBoundingClientRect().height;
       if (Number.isFinite(nextHeight) && nextHeight > 0) {
         portraitHeight = nextHeight;
+        fadeDistance = Math.max(140, portraitHeight * 0.75);
         shell.style.setProperty("--portrait-height", `${portraitHeight}px`);
       }
     };
 
     const updateOpacity = () => {
-      const baseHeight = portraitHeight || portrait.getBoundingClientRect().height;
-      const fadeDistance = Math.max(140, baseHeight * 0.75);
+      if (!fadeDistance) {
+        updateMetrics();
+        if (!fadeDistance) {
+          return;
+        }
+      }
       const progress = clamp(window.scrollY / fadeDistance, 0, 1);
       const offset = -window.scrollY * 0.6;
-      shell.style.setProperty("--portrait-opacity", `${(1 - progress).toFixed(3)}`);
-      shell.style.setProperty("--portrait-offset", `${offset.toFixed(1)}px`);
+      portrait.style.setProperty("--portrait-opacity", `${(1 - progress).toFixed(3)}`);
+      portrait.style.setProperty("--portrait-offset", `${offset.toFixed(1)}px`);
     };
 
     const handleScroll = () => {
@@ -74,8 +80,8 @@ export default function PortraitScrollBehavior() {
       isActive = false;
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleResize);
-      shell.style.setProperty("--portrait-opacity", "1");
-      shell.style.setProperty("--portrait-offset", "0px");
+      portrait.style.setProperty("--portrait-opacity", "1");
+      portrait.style.setProperty("--portrait-offset", "0px");
       shell.style.removeProperty("--portrait-height");
     };
 
