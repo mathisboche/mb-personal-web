@@ -36,7 +36,7 @@ export default function PortraitScrollBehavior() {
       const baseHeight = portraitHeight || portrait.getBoundingClientRect().height;
       const fadeDistance = Math.max(140, baseHeight * 0.75);
       const progress = clamp(window.scrollY / fadeDistance, 0, 1);
-      const offset = -window.scrollY * 0.2;
+      const offset = -window.scrollY * 0.6;
       shell.style.setProperty("--portrait-opacity", `${(1 - progress).toFixed(3)}`);
       shell.style.setProperty("--portrait-offset", `${offset.toFixed(1)}px`);
     };
