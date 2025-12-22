@@ -28,6 +28,7 @@ body {
 
 .garage-shell {
   --portrait-opacity: 1;
+  --portrait-offset: 0px;
   position: relative;
   min-height: 100vh;
   padding: clamp(1.6rem, 4vw, 3.4rem);
@@ -276,6 +277,7 @@ button:focus-visible {
     justify-content: center;
     width: 100%;
     pointer-events: none;
+    transform: translateY(var(--portrait-offset, 0px));
   }
 
   .garage-layout-content {

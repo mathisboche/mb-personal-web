@@ -36,7 +36,9 @@ export default function PortraitScrollBehavior() {
       const baseHeight = portraitHeight || portrait.getBoundingClientRect().height;
       const fadeDistance = Math.max(100, baseHeight * 0.55);
       const progress = clamp(window.scrollY / fadeDistance, 0, 1);
+      const offset = -window.scrollY * 0.35;
       shell.style.setProperty("--portrait-opacity", `${(1 - progress).toFixed(3)}`);
+      shell.style.setProperty("--portrait-offset", `${offset.toFixed(1)}px`);
     };
 
     const handleScroll = () => {
@@ -73,6 +75,7 @@ export default function PortraitScrollBehavior() {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleResize);
       shell.style.setProperty("--portrait-opacity", "1");
+      shell.style.setProperty("--portrait-offset", "0px");
       shell.style.removeProperty("--portrait-height");
     };
 
