@@ -12,8 +12,7 @@ export const metadata: Metadata = {
     default: "Mathis Boche",
     template: "%s — Mathis Boche",
   },
-  description:
-    "Contribution au développement du jeu d’échecs. Responsable communication pour ChessMates International. Membre du comité directeur du comité d’échecs des Hauts-de-Seine. Ateliers d’initiation aux échecs à la Cité des sciences et de l’industrie.",
+  description: "",
   robots: { index: true, follow: true },
   metadataBase: new URL("https://mathisboche.com"),
   icons: {
@@ -32,8 +31,7 @@ export const metadata: Metadata = {
   themeColor: "#ffffff",
   openGraph: {
     title: "Mathis Boche",
-    description:
-      "Contribution au développement du jeu d’échecs.",
+    description: "",
     type: "website",
     url: "https://mathisboche.com",
     siteName: "Mathis Boche",
