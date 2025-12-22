@@ -11,7 +11,7 @@ const applyFrenchTypography = (input: string) =>
     .replace(/ ;/g, "\u202F;")
     .replace(/ \?/g, "\u202F?")
     .replace(/ !/g, "\u202F!")
-    .replace(/ - /g, "\u00A0-\u00A0")
+    .replace(/ - /g, " -\u00A0")
     .replace(/(\p{L})-(?=\p{L})/gu, "$1\u2011");
 
 export default function TextCascade({ text, className }: TextCascadeProps) {
