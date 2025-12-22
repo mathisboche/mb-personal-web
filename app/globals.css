@@ -277,7 +277,6 @@ button:focus-visible {
     justify-content: center;
     width: 100%;
     pointer-events: none;
-    transform: translateY(var(--portrait-offset, 0px));
   }
 
   .garage-layout-content {
@@ -286,6 +285,7 @@ button:focus-visible {
 
   .garage-portrait-frame {
     width: min(70vw, 280px);
+    transform: translateY(var(--portrait-offset, 0px));
   }
 
   .garage-headline {
