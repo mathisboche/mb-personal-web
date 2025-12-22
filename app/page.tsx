@@ -61,9 +61,7 @@ export default function Page() {
                 </li>
                 <li className="garage-item garage-line" style={nextLineStyle()}>
                   <span className="garage-item-title">
-                    <TextCascade
-                      text={"Membre du Comité départemental du jeu d’échecs des Hauts\u2011de\u2011Seine"}
-                    />
+                    <TextCascade text="Membre du Comité départemental du jeu d’échecs des Hauts-de-Seine" />
                   </span>
                   <a
                     className="garage-link"
@@ -76,9 +74,7 @@ export default function Page() {
                 </li>
                 <li className="garage-item garage-line" style={nextLineStyle()}>
                   <span className="garage-item-title">
-                    <TextCascade
-                      text={"Cité des sciences et de l’industrie (Paris)\u202F: ateliers d’initiation aux échecs."}
-                    />
+                    <TextCascade text="Cité des sciences et de l’industrie (Paris) : ateliers d’initiation aux échecs." />
                   </span>
                 </li>
               </ul>
@@ -91,11 +87,7 @@ export default function Page() {
               <ul className="garage-list">
                 <li className="garage-item garage-line" style={nextLineStyle()}>
                   <span className="garage-item-title">
-                    <TextCascade
-                      text={
-                        "Colloque «\u202FLe sport universitaire\u202F: l’urgence d’agir\u202F»\u00A0-\u00A0Sénat."
-                      }
-                    />
+                    <TextCascade text="Colloque « Le sport universitaire : l’urgence d’agir » - Sénat." />
                   </span>
                 </li>
               </ul>
