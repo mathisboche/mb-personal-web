@@ -27,10 +27,11 @@ body {
 }
 
 .garage-shell {
+  --portrait-opacity: 1;
   position: relative;
   min-height: 100vh;
   padding: clamp(1.6rem, 4vw, 3.4rem);
-  overflow: hidden;
+  overflow: visible;
   isolation: isolate;
 }
 
@@ -77,12 +78,18 @@ h1, h2, p {
 .garage-layout-media {
   display: flex;
   justify-content: flex-start;
+  position: sticky;
+  top: clamp(3.35rem, 8vw, 6.65rem);
+  align-self: start;
+  z-index: 1;
 }
 
 .garage-layout-content {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  position: relative;
+  z-index: 2;
 }
 
 .garage-portrait-frame {
@@ -94,6 +101,7 @@ h1, h2, p {
   background: #f3f4f6;
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 22px 38px -32px rgba(0, 0, 0, 0.55);
+  opacity: var(--portrait-opacity, 1);
 }
 
 .garage-portrait-frame::after {
@@ -246,6 +254,7 @@ button:focus-visible {
 @media (max-width: 640px) {
   .garage-shell {
     padding: 1.15rem;
+    --portrait-height: clamp(18rem, 105vw, 26rem);
   }
 
   .garage-sheet {
@@ -256,6 +265,21 @@ button:focus-visible {
   .garage-layout {
     grid-template-columns: 1fr;
     gap: 1.6rem;
+    position: relative;
+  }
+
+  .garage-layout-media {
+    position: fixed;
+    top: 2.5rem;
+    left: 0;
+    right: 0;
+    justify-content: center;
+    width: 100%;
+    pointer-events: none;
+  }
+
+  .garage-layout-content {
+    padding-top: calc(var(--portrait-height) + 1.6rem);
   }
 
   .garage-portrait-frame {
