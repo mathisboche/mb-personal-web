@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 const MOBILE_QUERY = "(max-width: 640px)";
 const PARALLAX_FACTOR = 0.9;
-const SMOOTHING = 0.3;
+const SMOOTHING = 0.65;
 
 const clamp = (value: number, min: number, max: number) =>
   Math.min(max, Math.max(min, value));
