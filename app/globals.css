@@ -170,6 +170,10 @@ h1, h2, p {
   padding: 1rem 0;
 }
 
+.garage-item .garage-link {
+  align-self: flex-start;
+}
+
 .garage-item:not(:last-child) {
   border-bottom: 1px solid var(--line);
 }
@@ -203,16 +207,39 @@ h1, h2, p {
 }
 
 .garage-link {
+  position: relative;
+  display: inline-flex;
+  align-items: baseline;
+  width: fit-content;
+  max-width: 100%;
   color: inherit;
-  text-decoration: underline;
-  text-decoration-color: rgba(0, 0, 0, 0.35);
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
+  text-decoration: none;
+  padding-bottom: 0.15em;
+}
+
+.garage-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.1em;
+  height: 1px;
+  background-color: currentColor;
+  opacity: 0.35;
+  transform: scaleX(0.35);
+  transform-origin: left;
+  transition: transform 260ms ease, opacity 260ms ease;
+}
+
+.garage-link:hover::after,
+.garage-link:focus-visible::after {
+  opacity: 0.85;
+  transform: scaleX(1);
 }
 
 button {
   border: 1px solid rgba(0, 0, 0, 0.2);
-  background: #fff;
+  background-color: #fff;
   color: var(--ink);
   padding: 0.55rem 1.15rem;
   font-size: 0.96rem;
@@ -222,9 +249,18 @@ button {
   box-shadow: none;
 }
 
-button:hover,
-button:focus-visible {
-  background-color: var(--ink);
+.garage-button {
+  background-image: linear-gradient(var(--ink), var(--ink));
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 0% 100%;
+  transition: color 220ms ease, border-color 220ms ease, background-size 280ms ease;
+}
+
+.garage-button:hover,
+.garage-button:focus-visible {
+  background-size: 100% 100%;
+  border-color: var(--ink);
   color: #fff;
 }
 
@@ -240,6 +276,13 @@ button:focus-visible {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes garage-link-reveal {
+  to {
+    opacity: 0.6;
+    transform: scaleX(1);
   }
 }
 
@@ -291,7 +334,9 @@ button:focus-visible {
 
   .garage-portrait-frame {
     width: min(70vw, 280px);
-    transform: translate3d(0, var(--portrait-offset, 0px), 0);
+    transform: translate3d(0, var(--portrait-offset, 0px), 0)
+      scale(var(--portrait-scale, 1));
+    transform-origin: center top;
     will-change: transform, opacity;
   }
 
@@ -301,6 +346,13 @@ button:focus-visible {
 
   .garage-row {
     font-size: 0.98rem;
+  }
+
+  .garage-link::after {
+    opacity: 0;
+    transform: scaleX(0);
+    animation: garage-link-reveal 0.6s ease forwards;
+    animation-delay: calc(var(--line-index, 0) * 90ms + 240ms);
   }
 }
 
@@ -312,5 +364,16 @@ button:focus-visible {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
+  }
+
+  .garage-link::after {
+    animation: none !important;
+    transition: none !important;
+    opacity: 0.5 !important;
+    transform: scaleX(1) !important;
+  }
+
+  .garage-button {
+    transition: none !important;
   }
 }
