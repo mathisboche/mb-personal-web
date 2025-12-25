@@ -39,7 +39,6 @@ export default function PhoneCaptcha() {
     return (
       <button
         type="button"
-        className="garage-button"
         onClick={() => {
           setShowCaptcha(true);
           setCaptchaError("");
