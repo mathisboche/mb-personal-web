@@ -228,6 +228,24 @@ button:focus-visible {
   color: #fff;
 }
 
+@media (hover: hover) and (pointer: fine) {
+  .garage-button {
+    background-image: linear-gradient(var(--ink), var(--ink));
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 0% 100%;
+    transition: background-size 260ms ease, color 220ms ease, border-color 220ms ease;
+  }
+
+  .garage-button:hover,
+  .garage-button:focus-visible {
+    background-size: 100% 100%;
+    background-color: #fff;
+    border-color: var(--ink);
+    color: #fff;
+  }
+}
+
 .garage-line {
   --line-delay: 0s;
   opacity: 0;
