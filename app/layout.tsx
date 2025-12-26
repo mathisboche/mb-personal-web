@@ -38,9 +38,18 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     images: [
       {
-        url: "/og.png",
+        url: "/favicon.png",
+        width: 512,
+        height: 512,
+        alt: "Mathis Boche",
       },
     ],
+  },
+  twitter: {
+    card: "summary",
+    title: "Mathis Boche",
+    description: "",
+    images: ["/favicon.png"],
   },
 };
 
