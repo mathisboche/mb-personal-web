@@ -59,7 +59,10 @@ export default function PortraitScrollBehavior() {
     };
 
     const tick = () => {
-      rafId = null;
+      if (!isActive) {
+        rafId = null;
+        return;
+      }
       updateTargets();
       const opacityDelta = targetOpacity - currentOpacity;
       const offsetDelta = targetOffset - currentOffset;
@@ -73,29 +76,22 @@ export default function PortraitScrollBehavior() {
 
       applyStyles();
 
-      if (
-        Math.abs(targetOpacity - currentOpacity) >= 0.001 ||
-        Math.abs(targetOffset - currentOffset) >= 0.1
-      ) {
-        rafId = window.requestAnimationFrame(tick);
+      if (!isActive) {
+        rafId = null;
+        return;
       }
+      rafId = window.requestAnimationFrame(tick);
     };
 
-    const requestTick = () => {
+    const startTick = () => {
       if (rafId === null) {
         rafId = window.requestAnimationFrame(tick);
       }
     };
 
-    const handleScroll = () => {
-      updateTargets();
-      requestTick();
-    };
-
     const handleResize = () => {
       updateMetrics();
       updateTargets();
-      requestTick();
     };
 
     const activateMobile = () => {
@@ -108,7 +104,7 @@ export default function PortraitScrollBehavior() {
       currentOpacity = targetOpacity;
       currentOffset = targetOffset;
       applyStyles();
-      window.addEventListener("scroll", handleScroll, { passive: true });
+      startTick();
       window.addEventListener("resize", handleResize);
     };
 
@@ -117,7 +113,6 @@ export default function PortraitScrollBehavior() {
         return;
       }
       isActive = false;
-      window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleResize);
       if (rafId !== null) {
         window.cancelAnimationFrame(rafId);
