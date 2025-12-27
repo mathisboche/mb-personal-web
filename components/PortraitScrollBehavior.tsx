@@ -4,11 +4,11 @@ import { useEffect } from "react";
 
 const MOBILE_QUERY = "(max-width: 640px)";
 const PARALLAX_FACTOR = 0.6;
-const OPACITY_SMOOTHING_DURATION = 140;
-const OFFSET_SMOOTHING_ACTIVE = 55;
-const OFFSET_SMOOTHING_IDLE = 120;
-const SCROLL_ACTIVE_WINDOW = 120;
-const SCROLL_IDLE_DELAY = 140;
+const OPACITY_SMOOTHING_DURATION = 100;
+const OFFSET_SMOOTHING_ACTIVE = 32;
+const OFFSET_SMOOTHING_IDLE = 70;
+const SCROLL_ACTIVE_WINDOW = 90;
+const SCROLL_IDLE_DELAY = 90;
 const MAX_FRAME_DELTA = 64;
 
 const clamp = (value: number, min: number, max: number) =>
