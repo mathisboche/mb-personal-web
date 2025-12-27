@@ -27,6 +27,8 @@ body {
 }
 
 .garage-shell {
+  --portrait-opacity: 1;
+  --portrait-blur: 0px;
   position: relative;
   min-height: 100vh;
   padding: clamp(1.6rem, 4vw, 3.4rem);
@@ -100,6 +102,7 @@ h1, h2, p {
   background: #f3f4f6;
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 22px 38px -32px rgba(0, 0, 0, 0.55);
+  opacity: var(--portrait-opacity, 1);
 }
 
 .garage-portrait-frame::after {
@@ -113,6 +116,7 @@ h1, h2, p {
 .garage-portrait-image {
   object-fit: cover;
   transform: scale(1);
+  filter: blur(var(--portrait-blur, 0px));
   transition: transform 320ms ease;
 }
 
@@ -203,8 +207,8 @@ h1, h2, p {
   display: inline-block;
   color: inherit;
   text-decoration: underline;
-  text-decoration-color: rgba(0, 0, 0, 0.28);
-  text-decoration-thickness: 1px;
+  text-decoration-color: rgba(0, 0, 0, 0.3);
+  text-decoration-thickness: 1.5px;
   text-underline-offset: 3px;
 }
 
@@ -231,17 +235,9 @@ button:focus-visible {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .garage-link {
-    transition: text-decoration-color 180ms ease,
-      text-decoration-thickness 180ms ease,
-      text-underline-offset 180ms ease;
-  }
-
   .garage-link:hover,
   .garage-link:focus-visible {
     text-decoration-color: currentColor;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 4px;
   }
 
   .garage-button {
@@ -324,6 +320,11 @@ button:focus-visible {
 
   .garage-portrait-frame {
     width: min(70vw, 280px);
+    will-change: opacity;
+  }
+
+  .garage-portrait-image {
+    will-change: filter;
   }
 
   .garage-headline {

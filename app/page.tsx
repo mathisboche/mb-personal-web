@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { CSSProperties } from "react";
 
+import PortraitScrollBehavior from "../components/PortraitScrollBehavior";
 import PhoneCaptcha from "../components/PhoneCaptcha";
 import TextCascade from "../components/TextCascade";
 
@@ -16,6 +17,7 @@ export default function Page() {
 
   return (
     <main className="garage-shell">
+      <PortraitScrollBehavior />
       <div className="garage-backdrop" aria-hidden="true" />
       <div className="garage-sheet">
         <div className="garage-layout">
