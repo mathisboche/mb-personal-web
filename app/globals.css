@@ -232,17 +232,16 @@ button:focus-visible {
 
 @media (hover: hover) and (pointer: fine) {
   .garage-link {
-    text-decoration: none;
-    background-image: linear-gradient(currentColor, currentColor);
-    background-repeat: no-repeat;
-    background-position: 0 100%;
-    background-size: 0% 1px;
-    transition: background-size 220ms ease;
+    transition: text-decoration-color 180ms ease,
+      text-decoration-thickness 180ms ease,
+      text-underline-offset 180ms ease;
   }
 
   .garage-link:hover,
   .garage-link:focus-visible {
-    background-size: 100% 1px;
+    text-decoration-color: currentColor;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
   }
 
   .garage-button {
