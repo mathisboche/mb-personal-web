@@ -304,7 +304,6 @@ button:focus-visible {
     right: 0;
     justify-content: center;
     width: 100%;
-    pointer-events: none;
   }
 
   .garage-layout-content {
