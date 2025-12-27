@@ -27,8 +27,6 @@ body {
 }
 
 .garage-shell {
-  --portrait-opacity: 1;
-  --portrait-offset: 0px;
   position: relative;
   min-height: 100vh;
   padding: clamp(1.6rem, 4vw, 3.4rem);
@@ -102,7 +100,6 @@ h1, h2, p {
   background: #f3f4f6;
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 22px 38px -32px rgba(0, 0, 0, 0.55);
-  opacity: var(--portrait-opacity, 1);
 }
 
 .garage-portrait-frame::after {
@@ -313,8 +310,6 @@ button:focus-visible {
 
   .garage-portrait-frame {
     width: min(70vw, 280px);
-    transform: translate3d(0, var(--portrait-offset, 0px), 0);
-    will-change: transform, opacity;
   }
 
   .garage-headline {
