@@ -4,8 +4,11 @@ import { useEffect } from "react";
 
 const MOBILE_QUERY = "(max-width: 640px)";
 const PARALLAX_FACTOR = 0.6;
-const SMOOTHING_DURATION = 120;
-const SCROLL_IDLE_DELAY = 120;
+const OPACITY_SMOOTHING_DURATION = 140;
+const OFFSET_SMOOTHING_ACTIVE = 55;
+const OFFSET_SMOOTHING_IDLE = 120;
+const SCROLL_ACTIVE_WINDOW = 120;
+const SCROLL_IDLE_DELAY = 140;
 const MAX_FRAME_DELTA = 64;
 
 const clamp = (value: number, min: number, max: number) =>
@@ -71,11 +74,14 @@ export default function PortraitScrollBehavior() {
       const frameDelta = lastTimestamp ? timestamp - lastTimestamp : 16;
       const clampedDelta = Math.min(MAX_FRAME_DELTA, frameDelta);
       lastTimestamp = timestamp;
-      const smoothing = 1 - Math.exp(-clampedDelta / SMOOTHING_DURATION);
+      const isScrolling = timestamp - lastScrollTime < SCROLL_ACTIVE_WINDOW;
+      const offsetDuration = isScrolling ? OFFSET_SMOOTHING_ACTIVE : OFFSET_SMOOTHING_IDLE;
+      const opacitySmoothing = 1 - Math.exp(-clampedDelta / OPACITY_SMOOTHING_DURATION);
+      const offsetSmoothing = 1 - Math.exp(-clampedDelta / offsetDuration);
       const opacityDelta = targetOpacity - currentOpacity;
       const offsetDelta = targetOffset - currentOffset;
-      currentOpacity += opacityDelta * smoothing;
-      currentOffset += offsetDelta * smoothing;
+      currentOpacity += opacityDelta * opacitySmoothing;
+      currentOffset += offsetDelta * offsetSmoothing;
 
       if (Math.abs(opacityDelta) < 0.001 && Math.abs(offsetDelta) < 0.1) {
         currentOpacity = targetOpacity;
