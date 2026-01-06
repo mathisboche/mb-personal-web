@@ -108,6 +108,15 @@ export default function Page() {
                 </li>
               </ul>
             </section>
+
+            <footer className="garage-footer">
+              <p className="garage-footer-text garage-line" style={nextLineStyle()}>
+                <TextCascade text="Crédits : design et développement par Mathis Boche." />
+              </p>
+              <p className="garage-footer-text garage-line" style={nextLineStyle()}>
+                <TextCascade text="Mentions légales : informations disponibles sur demande." />
+              </p>
+            </footer>
           </div>
         </div>
       </div>

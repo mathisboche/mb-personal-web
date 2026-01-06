@@ -146,6 +146,24 @@ h1, h2, p {
   position: relative;
 }
 
+.garage-footer {
+  margin-top: 3rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--line);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 0.86rem;
+  letter-spacing: 0.01em;
+}
+
+.garage-footer-text {
+  max-width: 60ch;
+  line-height: 1.55;
+}
+
 .garage-subhead {
   font-size: 0.95rem;
   letter-spacing: 0.14em;
