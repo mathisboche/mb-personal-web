@@ -146,6 +146,24 @@ h1, h2, p {
   position: relative;
 }
 
+.legal-layout {
+  width: min(720px, 100%);
+  display: flex;
+  flex-direction: column;
+}
+
+.legal-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.legal-text {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
 .garage-footer {
   margin-top: 3rem;
   padding-top: 1.4rem;
@@ -162,6 +180,10 @@ h1, h2, p {
 .garage-footer-text {
   max-width: 60ch;
   line-height: 1.55;
+}
+
+.garage-footer .garage-link {
+  text-decoration-color: rgba(0, 0, 0, 0.2);
 }
 
 .garage-subhead {
