@@ -331,6 +331,7 @@ button:focus-visible {
   .garage-shell {
     padding: 1.15rem;
     --portrait-height: clamp(18rem, 105vw, 26rem);
+    --mobile-gutter: calc(1.15rem + 1.35rem);
   }
 
   .garage-sheet {
@@ -346,11 +347,12 @@ button:focus-visible {
 
   .garage-layout-media {
     position: fixed;
-    top: 2.5rem;
+    top: var(--mobile-gutter);
     left: 0;
     right: 0;
-    justify-content: center;
+    justify-content: flex-start;
     width: 100%;
+    padding-left: var(--mobile-gutter);
     pointer-events: none;
   }
 
