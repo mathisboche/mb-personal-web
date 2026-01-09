@@ -182,6 +182,10 @@ h1, h2, p {
   outline-offset: 3px;
 }
 
+.legal-nowrap {
+  white-space: nowrap;
+}
+
 .legal-block {
   display: flex;
   flex-direction: column;
@@ -393,7 +397,7 @@ button:focus-visible {
   }
 
   .garage-layout-content {
-    padding-top: calc(var(--portrait-height) + 1.6rem);
+    padding-top: calc(var(--portrait-height) + 2.8rem);
   }
 
   .garage-portrait-frame {
@@ -407,6 +411,7 @@ button:focus-visible {
 
   .garage-headline {
     font-size: clamp(2.2rem, 8vw, 3.1rem);
+    margin-top: 0;
   }
 
   .garage-row {

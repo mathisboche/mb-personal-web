@@ -123,10 +123,12 @@ export default function MentionsLegalesPage() {
               </p>
               <p className="legal-text garage-line" style={nextLineStyle()}>
                 <TextCascade text="Pour toute demande relative à vos données (accès, rectification, suppression), vous pouvez contacter" />{" "}
-                <a className="garage-link" href="mailto:mathis@mathisboche.com">
-                  mathis@mathisboche.com
-                </a>
-                .
+                <span className="legal-nowrap">
+                  <a className="garage-link" href="mailto:mathis@mathisboche.com">
+                    mathis@mathisboche.com
+                  </a>
+                  .
+                </span>
               </p>
             </div>
           </section>
