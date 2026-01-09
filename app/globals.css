@@ -152,6 +152,36 @@ h1, h2, p {
   flex-direction: column;
 }
 
+.legal-back {
+  position: sticky;
+  top: calc(env(safe-area-inset-top, 0px) + clamp(0.85rem, 2vw, 1.6rem));
+  z-index: 5;
+  margin-bottom: 1.15rem;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 0.38rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.6);
+  text-decoration: none;
+}
+
+.legal-back:hover {
+  color: rgba(0, 0, 0, 0.78);
+  border-color: rgba(0, 0, 0, 0.18);
+}
+
+.legal-back:focus-visible {
+  outline: 2px solid rgba(0, 0, 0, 0.65);
+  outline-offset: 3px;
+}
+
 .legal-block {
   display: flex;
   flex-direction: column;
@@ -182,8 +212,14 @@ h1, h2, p {
   line-height: 1.55;
 }
 
+.garage-footer-legal {
+  margin-top: 0.15rem;
+}
+
 .garage-footer .garage-link {
   text-decoration-color: rgba(0, 0, 0, 0.2);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
 }
 
 .garage-subhead {

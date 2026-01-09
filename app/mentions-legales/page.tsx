@@ -22,6 +22,10 @@ export default function MentionsLegalesPage() {
       <div className="garage-backdrop" aria-hidden="true" />
       <div className="garage-sheet">
         <div className="legal-layout">
+          <a className="legal-back garage-line" style={nextLineStyle()} href="/" aria-label="Retour à la page d’accueil">
+            <TextCascade text="← Retour à l’accueil" />
+          </a>
+
           <header>
             <h1 className="garage-headline garage-line" style={nextLineStyle()}>
               <TextCascade text="Mentions légales" />
