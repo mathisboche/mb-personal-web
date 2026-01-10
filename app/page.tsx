@@ -117,28 +117,6 @@ export default function Page() {
                 />
               </p>
 
-              <p className="garage-footer-text garage-line" style={nextLineStyle()}>
-                <TextCascade text="Conception et développement de ce site, ainsi que de" />{" "}
-                <a
-                  className="garage-link"
-                  href="https://www.echecs92.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  echecs92.com
-                </a>{" "}
-                <TextCascade text="et" />{" "}
-                <a
-                  className="garage-link"
-                  href="https://www.chessmatesinternational.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  chessmatesinternational.com
-                </a>
-                .
-              </p>
-
               <p className="garage-footer-text garage-footer-legal garage-line" style={nextLineStyle()}>
                 <a className="garage-link" href="/mentions-legales">
                   Mentions légales
